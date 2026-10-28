@@ -1,0 +1,393 @@
+/* ========================================================
+   HERO SECTION — TEMPLATE V2 KINETIC VISUAL IMPACT
+   Features: 3D Animated Crevinox Fox Logo Background,
+   Live Telemetry Metrics Dock, and Capability Marquee
+   ======================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(7.5rem, 13vh, 10rem);
+  padding-bottom: clamp(4rem, 8vh, 6rem);
+  overflow: hidden;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+/* Background 3D WebGL Canvas Layer — Persistent Across Full Homepage */
+.hero-canvas-container {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  contain: strict;
+  opacity: 1;
+  transition: opacity 1.2s ease;
+}
+
+#hero-webgl-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Hero Vignette and Volumetric Atmospheric Overlays */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: radial-gradient(circle at 75% 42%, rgba(56, 189, 248, 0.05) 0%, rgba(2, 132, 199, 0.02) 35%, transparent 70%);
+}
+
+.hero-bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent, rgba(3, 7, 18, 0.4));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Hero Content Grid */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 980px;
+}
+
+/* Dedicated Mobile 3D Mascot Showcase Window */
+.hero-mascot-mobile-stage {
+  display: none;
+}
+
+/* Eyebrow badge */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 1.15rem;
+  background: rgba(7, 14, 26, 0.75);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: var(--radius-full);
+  margin-bottom: 2rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: all var(--transition-normal);
+}
+
+.hero-eyebrow:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 4px 22px rgba(56, 189, 248, 0.15);
+  transform: translateY(-1px);
+}
+
+.hero-eyebrow-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+  animation: pulseCyberRadar 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseCyberRadar {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.6);
+  }
+  70% {
+    opacity: 0.7;
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(56, 189, 248, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(56, 189, 248, 0);
+  }
+}
+
+.hero-eyebrow-text {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: #E2E8F0;
+  text-transform: uppercase;
+}
+
+/* Main Headline */
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7.2vw, 5.8rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+}
+
+.hero-headline span.headline-row {
+  display: block;
+}
+
+.hero-headline .highlight-reality {
+  background: linear-gradient(135deg, #FFFFFF 0%, #BAE6FD 30%, #38BDF8 65%, #0284C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.2));
+}
+
+/* Supporting Copy */
+.hero-description {
+  font-size: clamp(1.05rem, 1.45vw, 1.3rem);
+  line-height: 1.68;
+  color: var(--text-secondary);
+  max-width: 620px;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+}
+
+/* Hero Button Group */
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 3.25rem;
+}
+
+/* WhatsApp Quick Action Pill — High-Tech Kinetic */
+.hero-whatsapp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.95rem 1.65rem;
+  border-radius: var(--radius-full);
+  background: rgba(37, 211, 102, 0.08);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.hero-whatsapp-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  transform: skewX(-25deg);
+  pointer-events: none;
+  transition: left 0.65s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.hero-whatsapp-pill:hover::before {
+  left: 140%;
+}
+
+.hero-whatsapp-pill:hover {
+  background: rgba(37, 211, 102, 0.14);
+  border-color: rgba(37, 211, 102, 0.7);
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.18);
+  transform: translateY(-2px) scale(1.015);
+}
+
+.hero-whatsapp-pill:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.hero-whatsapp-pill svg {
+  color: #25D366;
+  width: 18px;
+  height: 18px;
+}
+
+/* Live Studio Metrics Dock */
+.hero-metrics-dock {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  max-width: 860px;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: transform var(--transition-fast);
+}
+
+.metric-item:hover {
+  transform: translateY(-2px);
+}
+
+.metric-val {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.metric-val-accent {
+  font-size: 1.1rem;
+  color: var(--accent-cyan);
+}
+
+.metric-lbl {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ========================================================
+   INFINITE CAPABILITIES MARQUEE TICKER RIBBON
+   ======================================================== */
+.capability-marquee-section {
+  position: relative;
+  z-index: 4;
+  background: rgba(2, 5, 13, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-block: 1px solid rgba(56, 189, 248, 0.12);
+  padding: 1.1rem 0;
+  min-height: 52px;
+  contain: layout paint;
+  overflow: hidden;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeLoop 38s linear infinite;
+}
+
+.capability-marquee-section:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeLoop {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  white-space: nowrap;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #CBD5E1;
+}
+
+.marquee-separator {
+  color: var(--accent-cyan);
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .hero-metrics-dock {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: clamp(4.25rem, 6.5vh, 5.25rem);
+    padding-bottom: 3.5rem;
+    min-height: auto;
+  }
+
+  .hero-mascot-mobile-stage {
+    display: block;
+    width: 100%;
+    height: 195px;
+    margin-bottom: 0.5rem;
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-headline {
+    font-size: clamp(2.1rem, 8.2vw, 2.9rem);
+    letter-spacing: -0.025em;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    margin-bottom: 1.85rem;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.8rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .hero-cta-group .btn,
+  .hero-cta-group .hero-whatsapp-pill {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-metrics-dock {
+    padding-top: 1.5rem;
+  }
+}

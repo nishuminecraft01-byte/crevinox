@@ -1,0 +1,455 @@
+/* ========================================================
+   CONTACT / CONVERSION SECTION
+   ======================================================== */
+
+.contact-section {
+  position: relative;
+  background-color: transparent;
+  border-top: 1px solid var(--border-subtle);
+  overflow: hidden;
+  padding-bottom: clamp(6rem, 12vw, 10rem);
+  z-index: 2;
+}
+
+.contact-ambient-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(2, 132, 199, 0.04) 50%, transparent 75%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: clamp(3rem, 7vw, 6rem);
+  align-items: flex-start;
+}
+
+/* Left Column: Copy & Direct Contact Channels */
+.contact-info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 1.75rem;
+  text-transform: uppercase;
+}
+
+.contact-subtext {
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 2.75rem;
+  max-width: 46ch;
+}
+
+/* Direct channels list */
+.contact-channels-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  background: rgba(7, 14, 26, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.contact-channel-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.channel-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue-bright);
+}
+
+.channel-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.channel-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.channel-value-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.channel-value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  transition: color var(--transition-fast);
+  text-decoration: none;
+}
+
+.channel-value:hover {
+  color: var(--accent-blue-bright);
+}
+
+/* Copy Email Button */
+.copy-email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: #92929B;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.copy-email-btn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: rgba(56, 189, 248, 0.35);
+  color: #FFFFFF;
+}
+
+.copy-email-btn.copied {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34D399;
+}
+
+.copy-email-btn svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* WhatsApp Direct CTA button */
+.whatsapp-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.75rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  color: #FFFFFF;
+  border: 1px solid var(--border-medium);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.02em;
+  transition: all var(--transition-normal);
+  cursor: pointer;
+  width: 100%;
+  text-decoration: none;
+}
+
+.whatsapp-cta-btn:hover {
+  background: #FFFFFF;
+  color: var(--text-inverse);
+  border-color: #FFFFFF;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
+}
+
+.whatsapp-cta-btn svg {
+  width: 18px;
+  height: 18px;
+  color: #25D366;
+}
+
+/* Premium Social Media Contact Area: "LET'S CONNECT." */
+.contact-social-card {
+  margin-top: 1.75rem;
+  padding: 1.85rem;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(145deg, rgba(16, 16, 20, 0.9) 0%, rgba(10, 10, 14, 0.95) 100%);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.contact-social-card:hover {
+  border-color: rgba(56, 189, 248, 0.28);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.08);
+}
+
+.social-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.social-badge-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.social-badge-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.social-card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.social-heading {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #FFFFFF;
+  margin-bottom: 0.35rem;
+}
+
+.social-subtext {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+/* Primary Social Button: Monochrome with Electric-Blue Hover */
+.social-instagram-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1.65rem;
+  border-radius: var(--radius-full);
+  background: #FFFFFF;
+  color: var(--text-inverse);
+  border: 1px solid #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all var(--transition-normal);
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.15);
+  width: 100%;
+}
+
+.social-instagram-btn:hover {
+  background: linear-gradient(135deg, #0284C7 0%, #0052CC 100%);
+  color: #FFFFFF;
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 4px 18px rgba(2, 132, 199, 0.25);
+  transform: translateY(-2px);
+}
+
+.social-instagram-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.social-instagram-btn .btn-arrow {
+  display: inline-block;
+  transition: transform var(--transition-normal);
+}
+
+.social-instagram-btn:hover .btn-arrow {
+  transform: translate(3px, -3px);
+}
+
+/* Right Column: Interactive Project Inquiry Form */
+.contact-form-card {
+  background: rgba(7, 14, 26, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-xl);
+  padding: clamp(2rem, 4vw, 3.25rem);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.form-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #D1D5DB;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 0.85rem 1.15rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  color: #FFFFFF;
+  font-size: 0.92rem;
+  transition: border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  background: #0B162B;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Interactive Chips / Pills Selector */
+.pills-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.pill-option {
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+
+.pill-option:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+.pill-option.selected {
+  background: linear-gradient(135deg, #0284C7 0%, #0052CC 100%);
+  color: #FFFFFF;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.2);
+}
+
+/* Form Status Message Alert */
+.form-status-alert {
+  display: none;
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.form-status-alert.success {
+  display: block;
+  background: rgba(37, 211, 102, 0.12);
+  border: 1px solid rgba(37, 211, 102, 0.3);
+  color: #8CFAC0;
+}
+
+.form-status-alert.error {
+  display: block;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #FCA5A5;
+}
+
+.form-submit-btn {
+  width: 100%;
+  margin-top: 0.75rem;
+  padding: 1.1rem;
+  font-size: 0.95rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 960px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

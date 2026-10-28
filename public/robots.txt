@@ -1,0 +1,9 @@
+# CREVINOX — Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap Index Directive
+Sitemap: https://crevinox.com/sitemap.xml
+
+# LLM Agent Accessibility
+# llms.txt: https://crevinox.com/llms.txt

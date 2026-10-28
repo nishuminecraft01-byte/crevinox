@@ -1,0 +1,16 @@
+/* CREVINOX Design System - Main Stylesheet */
+@import './variables.css';
+@import './base.css';
+@import './intro.css';
+@import './navbar.css';
+@import './hero.css';
+@import './services.css';
+@import './work.css';
+@import './about.css';
+@import './process.css';
+@import './instagram.css';
+@import './contact.css';
+@import './footer.css';
+@import './modal.css';
+@import './reveal.css';
+@import './service-page.css';

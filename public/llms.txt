@@ -1,0 +1,30 @@
+# CREVINOX
+
+> Independent digital studio designing and engineering bespoke websites, high-performance e-commerce experiences, and brand platforms.
+
+CREVINOX builds fast, responsive, and visually distinctive digital experiences for businesses, brands, and growing enterprises worldwide. Every digital solution is engineered with clean semantic code, 60 FPS visual smoothness, and conversion-focused architecture.
+
+## Services
+
+- [Website Design & Development](https://crevinox.com/services/website-development/): High-performance bespoke websites built with modern web technologies, responsive layouts, 60fps animations, and conversion architecture.
+- [E-Commerce Experiences](https://crevinox.com/services/ecommerce-development/): Custom online storefronts, luxury product showcases, fast checkout pathways, and mobile-first e-commerce solutions.
+- [Business Websites](https://crevinox.com/services/business-websites/): Professional digital platforms designed to establish credibility, communicate business value, and generate qualified inquiries.
+- [Landing Page Design](https://crevinox.com/services/landing-page-design/): Laser-focused conversion landing pages engineered for campaigns, product launches, and lead generation.
+- [Website Redesign & Speed Optimization](https://crevinox.com/services/website-redesign/): Core Web Vitals optimization, asset compression, responsiveness improvements, and modern visual redesigns.
+
+## Projects
+
+- [Shri Krishna Jewellers](https://shrikrishna-jewellers.vercel.app/): Dedicated digital experience and luxury gold, diamond, and bridal catalogue showcase for a jewellery enterprise.
+- [House of Blush by Sargam](https://sargam-dx62f8dne-crevinox.vercel.app/): Luxury beauty and bridal makeup artistry editorial website concept and consultation intake flow.
+- [AV Fitness Centre](https://av-fitness-centre.vercel.app/): High-contrast athletic facility digital flagship featuring strength programs, facility previews, and membership consultation.
+- [Fine Gym](https://finegym.vercel.app/): Premium fitness center web presence in Dahisar West, Mumbai featuring training schedules and interactive galleries.
+- [Lumina Modern Dining](https://lumina-five-sepia.vercel.app/): Sensory culinary digital showcase with signature gastronomy presentations and luxury typography.
+- [Space Essence Design Studio](https://space-essence.vercel.app/): Architecture and interior design portfolio highlighting residential, commercial, 3D visualization, and VR spatial walkthroughs.
+
+## Verified Communication Channels
+
+- [Official Website](https://crevinox.com/): Official home of CREVINOX Digital Studio
+- [Primary Contact Email](mailto:crewinox@gmail.com): Primary inquiry and client onboarding email
+- [Official Instagram](https://www.instagram.com/crevinox/): Instagram platform and visual portfolio
+- [WhatsApp Direct Consultation](https://api.whatsapp.com/send?phone=919321703273&text=Hi%20CREVINOX): Direct WhatsApp consultation channel
+- [Sitemap](https://crevinox.com/sitemap.xml): Machine-readable XML sitemap of all public pages

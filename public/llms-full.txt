@@ -1,0 +1,48 @@
+# CREVINOX — Complete Information & Service Directory
+
+> Independent digital studio designing and engineering bespoke websites, high-performance e-commerce experiences, and brand platforms.
+
+## Overview
+CREVINOX is an independent digital studio focused on web design and bespoke development for businesses, brands, and modern enterprises. Our architectural philosophy centers on clean semantic code, optimal Core Web Vitals, 60fps micro-animations, and visual distinction without heavy CMS templates or bloated dependencies.
+
+## Key Services
+
+### 1. Website Design & Development
+- URL: https://crevinox.com/services/website-development/
+- Description: Custom frontend and backend architecture tailored to business requirements.
+- Technologies: Modern HTML5, Vanilla CSS3, JavaScript, WebGL (Three.js), accessible responsive design.
+- Offerings: Corporate websites, portfolio platforms, brand flagships, and web applications.
+
+### 2. E-Commerce Solutions
+- URL: https://crevinox.com/services/ecommerce-development/
+- Description: High-conversion storefronts designed to showcase products with editorial luxury.
+- Offerings: Catalog browsing, responsive mobile checkouts, custom product views, and brand storytelling.
+
+### 3. Business Websites
+- URL: https://crevinox.com/services/business-websites/
+- Description: Credibility-first digital presence for established and growing businesses.
+- Focus: Value proposition clarity, trust indicators, contact pathways, and SEO visibility.
+
+### 4. Landing Page Design
+- URL: https://crevinox.com/services/landing-page-design/
+- Description: Fast-loading, focused landing pages engineered for campaigns and advertising traffic.
+- Focus: High conversion rates, clear call-to-actions, minimal distractions, fast initial paint.
+
+### 5. Website Redesign & Speed Optimization
+- URL: https://crevinox.com/services/website-redesign/
+- Description: Overhauling outdated, slow, or template-bound websites into modern, high-speed experiences.
+- Focus: Core Web Vitals (LCP, CLS, INP), modern image formats, clean code refactoring.
+
+## Selected Portfolio Case Studies
+1. Shri Krishna Jewellers (https://shrikrishna-jewellers.vercel.app/) — Fine jewellery & retail catalog.
+2. House of Blush by Sargam (https://sargam-dx62f8dne-crevinox.vercel.app/) — Luxury beauty & editorial makeup artistry.
+3. AV Fitness Centre (https://av-fitness-centre.vercel.app/) — Athletic gym facility digital flagship in Kandivali East, Mumbai.
+4. Fine Gym (https://finegym.vercel.app/) — High-performance fitness center in Dahisar West, Mumbai.
+5. Lumina Modern Dining (https://lumina-five-sepia.vercel.app/) — Culinary showcase and signature gastronomy experience.
+6. Space Essence (https://space-essence.vercel.app/) — Architecture and interior design studio in Akola, Maharashtra.
+
+## Official Contact Information
+- Website: https://crevinox.com/
+- Contact Email: crewinox@gmail.com
+- Instagram: https://www.instagram.com/crevinox/
+- WhatsApp Consultation: Initiated directly through the official website

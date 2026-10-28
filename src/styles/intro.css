@@ -1,0 +1,524 @@
+/* ========================================================
+   CINEMATIC BRAND INTRO OVERLAY — CREVINOX FOX IDENTITY
+   ======================================================== */
+
+.brand-intro-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #030712;
+  z-index: var(--z-intro);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: contain;
+  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, visibility;
+  cursor: pointer;
+}
+
+/* Cosmic Cyber Grid & Stardust Texture */
+.brand-intro-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.14) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 32px 32px, 200px 200px;
+  z-index: 1;
+}
+
+/* High-Tech HUD Laser Scanline Sweep */
+.intro-hud-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.4) 25%, #FFFFFF 50%, rgba(56, 189, 248, 0.4) 75%, transparent 100%);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.6), 0 0 32px rgba(2, 132, 199, 0.3);
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.brand-intro-overlay.phase-1 .intro-hud-scanner,
+.brand-intro-overlay.phase-2 .intro-hud-scanner {
+  opacity: 1;
+  animation: hudLaserSweep 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes hudLaserSweep {
+  0% {
+    top: -5%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.85;
+  }
+  100% {
+    top: 105%;
+    opacity: 0;
+  }
+}
+
+/* Ambient Radial Aurora Glows — Soft, Eye-Comfortable Aura */
+.intro-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  width: min(72vw, 440px);
+  height: min(72vw, 440px);
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+      rgba(56, 189, 248, 0.18) 0%,
+      rgba(2, 132, 199, 0.12) 35%,
+      rgba(7, 18, 38, 0.06) 60%,
+      transparent 75%);
+  filter: blur(48px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1400ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.brand-intro-overlay.phase-1 .intro-ambient-glow,
+.brand-intro-overlay.phase-2 .intro-ambient-glow,
+.brand-intro-overlay.phase-3 .intro-ambient-glow {
+  opacity: 0.85;
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* Center Stage Content Container */
+.intro-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 90vw;
+  pointer-events: auto;
+  transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 800ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* High-Tech HUD Reticle Brackets */
+.intro-hud-bracket {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+  transition: all 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.intro-hud-bracket.tl {
+  top: 0;
+  left: 0;
+  border-top: 1.5px solid rgba(56, 189, 248, 0.45);
+  border-left: 1.5px solid rgba(56, 189, 248, 0.45);
+  transform: translate(-8px, -8px);
+}
+
+.intro-hud-bracket.tr {
+  top: 0;
+  right: 0;
+  border-top: 1.5px solid rgba(56, 189, 248, 0.45);
+  border-right: 1.5px solid rgba(56, 189, 248, 0.45);
+  transform: translate(8px, -8px);
+}
+
+.intro-hud-bracket.bl {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.45);
+  border-left: 1.5px solid rgba(56, 189, 248, 0.45);
+  transform: translate(-8px, 8px);
+}
+
+.intro-hud-bracket.br {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1.5px solid rgba(56, 189, 248, 0.45);
+  border-right: 1.5px solid rgba(56, 189, 248, 0.45);
+  transform: translate(8px, 8px);
+}
+
+.brand-intro-overlay.phase-2 .intro-hud-bracket,
+.brand-intro-overlay.phase-3 .intro-hud-bracket {
+  opacity: 0.8;
+  transform: translate(0, 0);
+}
+
+/* Rotating Cyber Telemetry Gyro Rings (Dual Concentric) */
+.intro-energy-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.85);
+  width: min(72vw, 360px);
+  height: min(72vw, 360px);
+  border-radius: 50%;
+  border: 1px dashed rgba(125, 211, 252, 0.28);
+  box-shadow:
+    0 0 16px rgba(56, 189, 248, 0.12),
+    inset 0 0 16px rgba(2, 132, 199, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 800ms ease, transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  animation: introRingRotate 14s linear infinite;
+  will-change: transform;
+}
+
+.intro-energy-ring-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.75);
+  width: min(60vw, 300px);
+  height: min(60vw, 300px);
+  border-radius: 50%;
+  border: 1px dotted rgba(56, 189, 248, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 900ms ease, transform 1100ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+  animation: introRingCounterRotate 9s linear infinite;
+  will-change: transform;
+}
+
+@keyframes introRingRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes introRingCounterRotate {
+  from {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+.brand-intro-overlay.phase-2 .intro-energy-ring,
+.brand-intro-overlay.phase-3 .intro-energy-ring {
+  opacity: 0.8;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.brand-intro-overlay.phase-2 .intro-energy-ring-inner,
+.brand-intro-overlay.phase-3 .intro-energy-ring-inner {
+  opacity: 0.6;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Logo Reveal Container */
+.intro-logo-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(65vw, 320px);
+  max-width: 100%;
+  max-height: 45vh;
+  margin-inline: auto;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+}
+
+.intro-logo-image {
+  display: block;
+  width: min(65vw, 320px);
+  max-width: 100%;
+  max-height: 45vh;
+  height: auto;
+  object-fit: contain;
+  aspect-ratio: 1 / 1;
+  filter:
+    drop-shadow(0 0 14px rgba(56, 189, 248, 0.22))
+    drop-shadow(0 12px 35px rgba(0, 0, 0, 0.85));
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: filter 1s ease;
+}
+
+.brand-intro-overlay.phase-2 .intro-logo-image {
+  animation: cyberHoloForge 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cyberHoloForge {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+    filter: drop-shadow(0 0 28px rgba(56, 189, 248, 0.8)) brightness(2);
+  }
+  25% {
+    opacity: 0.8;
+    transform: scale(1.02);
+    filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.6)) brightness(1.4);
+  }
+  40% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  60% {
+    opacity: 0.95;
+    transform: scale(1.01);
+    filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.4)) brightness(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.22)) drop-shadow(0 12px 35px rgba(0, 0, 0, 0.85));
+  }
+}
+
+.brand-intro-overlay.phase-2 .intro-logo-container,
+.brand-intro-overlay.phase-3 .intro-logo-container {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Phase 3: Brand Name & Taglines */
+.intro-text-container {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 3;
+}
+
+.intro-brand-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 0.3em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2F2FE 45%, #93C5FD 75%, #0284C7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 16px rgba(56, 189, 248, 0.18));
+  margin-right: -0.3em;
+  position: relative;
+}
+
+.brand-intro-overlay.phase-3 .intro-brand-title {
+  animation: holoTextGlitch 0.45s ease-out forwards;
+}
+
+@keyframes holoTextGlitch {
+  0% {
+    opacity: 0;
+    transform: translateY(6px);
+    letter-spacing: 0.38em;
+  }
+  30% {
+    opacity: 0.9;
+    letter-spacing: 0.28em;
+  }
+  60% {
+    opacity: 0.6;
+    letter-spacing: 0.32em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.3em;
+  }
+}
+
+.intro-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 1.3vw, 0.88rem);
+  font-weight: 600;
+  letter-spacing: 0.42em;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  margin-right: -0.42em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.intro-sub-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(0.64rem, 1vw, 0.72rem);
+  letter-spacing: 0.22em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+/* High-Tech HUD Telemetry Readout */
+.intro-hud-telemetry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding: 0.3rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: rgba(7, 14, 26, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  color: #94A3B8;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 600ms ease, transform 600ms ease;
+  z-index: 3;
+}
+
+.intro-hud-telemetry .telemetry-node {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.intro-hud-telemetry .telemetry-sep {
+  opacity: 0.4;
+}
+
+.brand-intro-overlay.phase-3 .intro-hud-telemetry {
+  opacity: 0.85;
+  transform: translateY(0);
+}
+
+.brand-intro-overlay.phase-3 .intro-text-container {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Cinematic Energy Progress Bar */
+.intro-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  z-index: 5;
+}
+
+.intro-progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #0284C7 0%, #38BDF8 50%, #FFFFFF 100%);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.35);
+  transition: width 2.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-intro-overlay.phase-1 .intro-progress-fill {
+  width: 100%;
+}
+
+/* Phase 4: High-Tech Cyber Kinetic Warp Transition into Homepage */
+.brand-intro-overlay.phase-4 {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transform: scale(1.08);
+  filter: blur(4px);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 750ms cubic-bezier(0.16, 1, 0.3, 1),
+    filter 650ms ease,
+    visibility 750ms ease;
+}
+
+.brand-intro-overlay.phase-4 .intro-content {
+  transform: translateY(-20px) scale(0.94);
+  opacity: 0;
+  transition: transform 650ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 500ms ease;
+}
+
+.brand-intro-overlay.intro-complete {
+  display: none !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* Minimal Skip Intro Button */
+.intro-skip-btn {
+  position: absolute;
+  bottom: 2.25rem;
+  right: 2.25rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.15rem;
+  background: rgba(7, 14, 26, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+.intro-skip-btn span {
+  color: var(--accent-cyan);
+}
+
+.intro-skip-btn:hover {
+  background: rgba(12, 24, 43, 0.95);
+  color: #FFFFFF;
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .intro-skip-btn {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.68rem;
+    padding: 0.45rem 0.95rem;
+  }
+
+  .intro-brand-title {
+    font-size: 1.85rem;
+    letter-spacing: 0.22em;
+  }
+}

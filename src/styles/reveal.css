@@ -1,0 +1,80 @@
+/* ========================================================
+   SCROLL REVEAL & MOTION SYSTEM — HIGH-TECH CYBER KINETIC
+   ======================================================== */
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(22px) scale(0.985);
+  transition: opacity 650ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 650ms cubic-bezier(0.19, 1, 0.22, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delay classes — Cyber Cadence */
+.delay-100 { transition-delay: 80ms; }
+.delay-200 { transition-delay: 160ms; }
+.delay-300 { transition-delay: 240ms; }
+.delay-400 { transition-delay: 320ms; }
+.delay-500 { transition-delay: 400ms; }
+
+/* Cyber Kinetic horizontal reveals */
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-24px) scale(0.99);
+  transition: opacity 650ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 650ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-slide-left.is-revealed {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(24px) scale(0.99);
+  transition: opacity 650ms cubic-bezier(0.19, 1, 0.22, 1),
+              transform 650ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.reveal-slide-right.is-revealed {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* Cyber Scanning Line Accent on Revealed Headers */
+.section-title.is-revealed {
+  position: relative;
+}
+
+.section-title.is-revealed::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), transparent);
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  animation: cyberAccentSweep 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+}
+
+@keyframes cyberAccentSweep {
+  0% {
+    width: 0px;
+    opacity: 0;
+  }
+  50% {
+    width: 60px;
+    opacity: 1;
+  }
+  100% {
+    width: 36px;
+    opacity: 0.85;
+  }
+}

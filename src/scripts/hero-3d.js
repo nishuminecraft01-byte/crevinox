@@ -55,22 +55,22 @@ export function initHero3D() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.95;
 
-    // 4. Lighting System (Soft Cinematic Studio Rig — Arctic Cyber Theme)
-    const ambientLight = new THREE.AmbientLight(0x060e1d, 2.2);
+    // 4. Lighting System (Soft Daylight Studio Rig — Light Theme Luxury)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 2.4);
     scene.add(ambientLight);
 
-    // Soft Icy-Blue Rim Light (Restrained & Elegant)
-    const cyanRimLight = new THREE.DirectionalLight(0x38BDF8, 2.2);
+    // Sapphire Azure Rim Light (Restrained & Elegant)
+    const cyanRimLight = new THREE.DirectionalLight(0x0284C7, 1.8);
     cyanRimLight.position.set(4, 3, 3);
     scene.add(cyanRimLight);
 
-    // Frost Platinum Front Fill
-    const silverKeyLight = new THREE.DirectionalLight(0xE2E8F0, 1.8);
+    // Daylight Pure White Front Fill
+    const silverKeyLight = new THREE.DirectionalLight(0xffffff, 2.0);
     silverKeyLight.position.set(-3, 4, 4);
     scene.add(silverKeyLight);
 
-    // Deep Sapphire Blue Bottom Fill
-    const bottomFillLight = new THREE.PointLight(0x0284C7, 1.5, 18);
+    // Sky Blue Bottom Fill
+    const bottomFillLight = new THREE.PointLight(0x38BDF8, 1.2, 18);
     bottomFillLight.position.set(0, -4, 2);
     scene.add(bottomFillLight);
 
@@ -84,10 +84,10 @@ export function initHero3D() {
       c.height = 512;
       const ctx = c.getContext('2d');
       const grad = ctx.createRadialGradient(256, 256, 15, 256, 256, 240);
-      grad.addColorStop(0, 'rgba(56, 189, 248, 0.28)');
-      grad.addColorStop(0.35, 'rgba(2, 132, 199, 0.12)');
-      grad.addColorStop(0.65, 'rgba(7, 18, 38, 0.05)');
-      grad.addColorStop(1, 'rgba(3, 7, 18, 0)');
+      grad.addColorStop(0, 'rgba(56, 189, 248, 0.20)');
+      grad.addColorStop(0.35, 'rgba(14, 165, 233, 0.08)');
+      grad.addColorStop(0.65, 'rgba(241, 245, 249, 0.04)');
+      grad.addColorStop(1, 'rgba(248, 250, 252, 0)');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, 512, 512);
       const texture = new THREE.CanvasTexture(c);
@@ -101,7 +101,7 @@ export function initHero3D() {
     const glowMaterial = new THREE.MeshBasicMaterial({
       map: glowTexture,
       transparent: true,
-      opacity: 0.38,
+      opacity: 0.45,
       blending: THREE.NormalBlending,
       depthWrite: false,
       side: THREE.DoubleSide
@@ -123,8 +123,8 @@ export function initHero3D() {
         map: texture,
         transparent: true,
         alphaTest: 0.02,
-        roughness: 0.35,
-        metalness: 0.25,
+        roughness: 0.25,
+        metalness: 0.15,
         side: THREE.DoubleSide
       });
 
@@ -150,43 +150,43 @@ export function initHero3D() {
     // C. Thin, Refined Celestial Tourbillon Gyro Rings (Haute Horlogerie Luxury)
     const ring1Geometry = new THREE.TorusGeometry(2.35, 0.009, 16, 120);
     const ring1Material = new THREE.MeshStandardMaterial({
-      color: 0x7DD3FC,
-      emissive: 0x0284C7,
-      emissiveIntensity: 0.22,
-      metalness: 0.94,
+      color: 0x0284C7,
+      emissive: 0x0369A1,
+      emissiveIntensity: 0.2,
+      metalness: 0.9,
       roughness: 0.18,
       transparent: true,
-      opacity: 0.55
+      opacity: 0.65
     });
     ring1 = new THREE.Mesh(ring1Geometry, ring1Material);
     ring1.rotation.x = Math.PI / 3.2;
     logoGroup.add(ring1);
 
-    // Inner Counter-Rotating Platinum Tourbillon Orbit Ring
+    // Inner Counter-Rotating Tourbillon Orbit Ring (Slate Platinum)
     const ring2Geometry = new THREE.TorusGeometry(2.58, 0.006, 16, 120);
     const ring2Material = new THREE.MeshStandardMaterial({
-      color: 0xF1F5F9,
-      emissive: 0x38BDF8,
-      emissiveIntensity: 0.15,
-      metalness: 0.98,
+      color: 0x334155,
+      emissive: 0x475569,
+      emissiveIntensity: 0.1,
+      metalness: 0.95,
       roughness: 0.12,
       transparent: true,
-      opacity: 0.45
+      opacity: 0.55
     });
     ring2 = new THREE.Mesh(ring2Geometry, ring2Material);
     ring2.rotation.y = Math.PI / 4;
     logoGroup.add(ring2);
 
-    // Equatorial Astrolabe Horizon Gyro Ring
+    // Equatorial Astrolabe Horizon Gyro Ring (Sky Azure)
     const ring3Geometry = new THREE.TorusGeometry(2.82, 0.005, 16, 120);
     const ring3Material = new THREE.MeshStandardMaterial({
-      color: 0x38BDF8,
+      color: 0x0EA5E9,
       emissive: 0x0284C7,
-      emissiveIntensity: 0.16,
-      metalness: 0.9,
+      emissiveIntensity: 0.2,
+      metalness: 0.85,
       roughness: 0.25,
       transparent: true,
-      opacity: 0.38
+      opacity: 0.55
     });
     ring3 = new THREE.Mesh(ring3Geometry, ring3Material);
     ring3.rotation.x = Math.PI / 2.1;
@@ -217,11 +217,11 @@ export function initHero3D() {
 
     particleGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     const particleMaterial = new THREE.PointsMaterial({
-      color: 0xBAE6FD,
-      size: 0.028,
+      color: 0x0284C7,
+      size: 0.032,
       transparent: true,
-      opacity: 0.45,
-      blending: THREE.AdditiveBlending
+      opacity: 0.55,
+      blending: THREE.NormalBlending
     });
     particles = new THREE.Points(particleGeometry, particleMaterial);
     logoGroup.add(particles);

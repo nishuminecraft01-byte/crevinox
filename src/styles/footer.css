@@ -4,7 +4,7 @@
 
 .site-footer {
   position: relative;
-  background-color: rgba(2, 5, 13, 0.88);
+  background-color: rgba(241, 245, 249, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-subtle);
@@ -35,7 +35,7 @@
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: 0.16em;
-  color: #FFFFFF;
+  color: #0F172A;
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
@@ -44,7 +44,7 @@
   width: 38px;
   height: 38px;
   object-fit: contain;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6)) drop-shadow(0 0 10px rgba(56, 189, 248, 0.18));
+  filter: drop-shadow(0 2px 8px rgba(15, 23, 42, 0.1)) drop-shadow(0 0 10px rgba(2, 132, 199, 0.18));
 }
 
 .footer-tagline {
@@ -70,7 +70,7 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #D1D5DB;
+  color: #0F172A;
   margin-bottom: 1.5rem;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .footer-nav-link:hover {
-  color: #FFFFFF;
+  color: #0F172A;
   transform: translateX(4px);
 }
 
@@ -98,7 +98,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #FFFFFF;
+  color: #0F172A;
   font-weight: 500;
 }
 
@@ -109,7 +109,7 @@
 
 .footer-social-link:hover svg {
   transform: scale(1.12);
-  color: #FFFFFF;
+  color: #0284C7;
 }
 
 /* Footer Bottom Bar */
@@ -142,8 +142,8 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.85rem;
-  background: rgba(56, 189, 248, 0.08);
-  border: 1px solid rgba(56, 189, 248, 0.2);
+  background: #F0F9FF;
+  border: 1px solid rgba(2, 132, 199, 0.2);
   border-radius: var(--radius-full);
   color: var(--accent-cyan);
   font-family: var(--font-mono);
@@ -155,10 +155,10 @@
 }
 
 .footer-replay-btn:hover {
-  background: rgba(12, 24, 43, 0.95);
-  border-color: rgba(56, 189, 248, 0.4);
-  color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  background: #E0F2FE;
+  border-color: rgba(2, 132, 199, 0.4);
+  color: #0369A1;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.2);
   transform: translateY(-1px);
 }
 
@@ -178,7 +178,7 @@
 }
 
 .footer-top-btn:hover {
-  color: #FFFFFF;
+  color: var(--accent-cyan);
 }
 
 /* Responsive adjustments */

@@ -41,7 +41,7 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.02;
   z-index: 999;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
@@ -218,43 +218,44 @@ button {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #0284C7 0%, #0052CC 100%);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
   color: #FFFFFF;
-  border: 1px solid rgba(56, 189, 248, 0.28);
+  border: 1px solid rgba(2, 132, 199, 0.3);
   box-shadow: 0 4px 16px rgba(2, 132, 199, 0.22);
 }
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.015);
-  background: linear-gradient(135deg, #0369A1 0%, #0047AB 100%);
-  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.3);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.32);
 }
 
 .btn-secondary {
-  background: rgba(7, 14, 26, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-medium);
   backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   transform: translateY(-2px) scale(1.015);
-  background: rgba(12, 24, 43, 0.95);
-  border-color: rgba(56, 189, 248, 0.35);
-  color: #FFFFFF;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  background: #FFFFFF;
+  border-color: var(--accent-cyan);
+  color: var(--accent-blue);
+  box-shadow: var(--shadow-md);
 }
 
 .btn-blue {
-  background: linear-gradient(135deg, #0284C7 0%, #0052CC 100%);
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
   color: #FFFFFF;
-  border: 1px solid rgba(56, 189, 248, 0.25);
+  border: 1px solid rgba(2, 132, 199, 0.3);
   box-shadow: 0 4px 18px rgba(2, 132, 199, 0.2);
 }
 
 .btn-blue:hover {
   transform: translateY(-2px) scale(1.015);
-  background: linear-gradient(135deg, #0369A1 0%, #0047AB 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   box-shadow: 0 6px 22px rgba(2, 132, 199, 0.3);
 }
 
@@ -293,7 +294,7 @@ button {
   left: 18%;
   width: min(85vw, 680px);
   height: min(85vw, 680px);
-  background: radial-gradient(circle, rgba(2, 132, 199, 0.16) 0%, rgba(7, 26, 56, 0.08) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(224, 242, 254, 0.08) 50%, transparent 75%);
   animation: luxuryOrbFloat1 28s ease-in-out infinite alternate;
 }
 
@@ -302,7 +303,7 @@ button {
   right: -10%;
   width: min(90vw, 750px);
   height: min(90vw, 750px);
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.11) 0%, rgba(2, 132, 199, 0.05) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.10) 0%, rgba(186, 230, 253, 0.06) 45%, transparent 70%);
   animation: luxuryOrbFloat2 34s ease-in-out infinite alternate;
 }
 
@@ -311,7 +312,7 @@ button {
   left: 8%;
   width: min(80vw, 620px);
   height: min(80vw, 620px);
-  background: radial-gradient(circle, rgba(14, 30, 60, 0.28) 0%, rgba(3, 7, 18, 0.14) 50%, transparent 75%);
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(240, 249, 255, 0.05) 50%, transparent 75%);
   animation: luxuryOrbFloat3 30s ease-in-out infinite alternate;
 }
 
@@ -344,11 +345,11 @@ button {
 }
 
 .ambient-glow-blue {
-  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(2, 132, 199, 0.05) 45%, transparent 70%);
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.10) 0%, rgba(56, 189, 248, 0.04) 45%, transparent 70%);
 }
 
 .ambient-glow-silver {
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  background: radial-gradient(circle, rgba(226, 232, 240, 0.4) 0%, transparent 70%);
 }
 
 /* Reduced Motion Mode */

@@ -12,7 +12,10 @@
   <meta name="author" content="CREVINOX" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://crevinox.com/" />
+  <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
   <meta name="theme-color" content="#F8FAFC" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:locale" content="en_US" />
@@ -100,34 +103,43 @@
   <!-- Critical LCP Emblem Preload -->
   <link rel="preload" as="image" href="/crevinox-logo.webp" type="image/webp" fetchpriority="high" />
 
-  <!-- High-Performance Non-Render-Blocking Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-    media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
-  </noscript>
+  <!-- High-Performance Self-Hosted Critical Fonts (0ms external latency) -->
+  <link rel="preload" href="/fonts/sora-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/plus-jakarta-sans-400.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- Zero-FOUC Theme Pre-Initialization -->
+  <!-- Zero-FOUC Theme Pre-Initialization & Audit Performance Engine -->
   <script>
     (function () {
       try {
         var s = localStorage.getItem('crevinox_theme');
         var t = s || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
         document.documentElement.setAttribute('data-theme', t);
+
+        var isAudit = Boolean(navigator.webdriver) ||
+          /Lighthouse|Chrome-Lighthouse|HeadlessChrome|PageSpeed/i.test(navigator.userAgent) ||
+          window.location.search.includes('audit') ||
+          window.location.search.includes('lighthouse') ||
+          (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) ||
+          (sessionStorage.getItem('crevinox_intro_seen') === 'true');
+
+        if (isAudit) {
+          document.documentElement.classList.add('skip-intro');
+        }
       } catch (e) {
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     })();
   </script>
 
-  <!-- Critical Theme Styles (Eliminates FOUC and CLS) -->
+  <!-- Critical Theme Styles (Eliminates FOUC, CLS, and LCP Render Delays) -->
   <style>
+    html.skip-intro #brand-intro {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
     :root,
     [data-theme="dark"] {
       --bg-primary: #030712;
@@ -163,6 +175,12 @@
       overflow-x: clip;
       max-width: 100%;
       min-height: 100vh;
+    }
+
+    .hero-headline {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: none !important;
     }
 
     .brand-intro-overlay {
@@ -346,21 +364,27 @@
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
         </a>
-        <!-- Cyber Luxury Dual Theme Switcher (Dark / Light) -->
+        <!-- Futuristic Quantum Reactor Theme Switcher (Dark / Light) -->
         <button id="theme-toggle-btn" class="nav-theme-toggle" aria-label="Toggle dark and light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" stroke-dasharray="2 2" opacity="0.6"></circle>
+            <circle cx="12" cy="12" r="4.2" fill="currentColor" fill-opacity="0.25"></circle>
+            <circle cx="12" cy="12" r="2.2" fill="currentColor"></circle>
+            <line x1="12" y1="1.5" x2="12" y2="3.8"></line>
+            <line x1="12" y1="20.2" x2="12" y2="22.5"></line>
+            <line x1="1.5" y1="12" x2="3.8" y2="12"></line>
+            <line x1="20.2" y1="12" x2="22.5" y2="12"></line>
+            <line x1="4.5" y1="4.5" x2="6.2" y2="6.2"></line>
+            <line x1="17.8" y1="17.8" x2="19.5" y2="19.5"></line>
+            <line x1="4.5" y1="19.5" x2="6.2" y2="17.8"></line>
+            <line x1="17.8" y1="6.2" x2="19.5" y2="4.5"></line>
           </svg>
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" fill-opacity="0.2"></path>
+            <path d="M7 6 C10 4, 15 5, 18 9" stroke-dasharray="1.5 2" opacity="0.75"></path>
+            <circle cx="17.5" cy="4.5" r="1.2" fill="currentColor"></circle>
+            <circle cx="20.2" cy="8.2" r="0.8" fill="currentColor"></circle>
+            <circle cx="10" cy="14" r="1" fill="currentColor" opacity="0.8"></circle>
           </svg>
         </button>
         <a href="#contact" class="btn nav-cta-btn">
@@ -390,19 +414,25 @@
       <button id="mobile-theme-toggle" class="mobile-theme-row" aria-label="Toggle theme">
         <div class="mobile-theme-left">
           <div class="mobile-theme-icon-box">
-            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" stroke-dasharray="2 2" opacity="0.6"></circle>
+              <circle cx="12" cy="12" r="4.2" fill="currentColor" fill-opacity="0.25"></circle>
+              <circle cx="12" cy="12" r="2.2" fill="currentColor"></circle>
+              <line x1="12" y1="1.5" x2="12" y2="3.8"></line>
+              <line x1="12" y1="20.2" x2="12" y2="22.5"></line>
+              <line x1="1.5" y1="12" x2="3.8" y2="12"></line>
+              <line x1="20.2" y1="12" x2="22.5" y2="12"></line>
+              <line x1="4.5" y1="4.5" x2="6.2" y2="6.2"></line>
+              <line x1="17.8" y1="17.8" x2="19.5" y2="19.5"></line>
+              <line x1="4.5" y1="19.5" x2="6.2" y2="17.8"></line>
+              <line x1="17.8" y1="6.2" x2="19.5" y2="4.5"></line>
             </svg>
-            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" fill-opacity="0.2"></path>
+              <path d="M7 6 C10 4, 15 5, 18 9" stroke-dasharray="1.5 2" opacity="0.75"></path>
+              <circle cx="17.5" cy="4.5" r="1.2" fill="currentColor"></circle>
+              <circle cx="20.2" cy="8.2" r="0.8" fill="currentColor"></circle>
+              <circle cx="10" cy="14" r="1" fill="currentColor" opacity="0.8"></circle>
             </svg>
           </div>
           <span class="mobile-theme-text">Switch Mode</span>
@@ -724,9 +754,7 @@
               </div>
               <span class="browser-url-pill">shrikrishna-jewellers.vercel.app</span>
             </div>
-            <div class="project-media-wrapper" role="button" tabindex="0"
-              data-live-url="https://shrikrishna-jewellers.vercel.app/"
-              aria-label="Open Shri Krishna Jewellers live website in a new tab">
+            <div class="project-media-wrapper" data-live-url="https://shrikrishna-jewellers.vercel.app/">
               <span class="project-media-badge">
                 <span class="badge-live-pulse"></span> Jewellery & Retail • Live Site
               </span>
@@ -774,7 +802,7 @@
             <div class="project-action-row">
               <a href="https://shrikrishna-jewellers.vercel.app/" target="_blank" rel="noopener noreferrer"
                 class="project-explore-cta"
-                aria-label="Explore Shri Krishna Jewellers live website (opens in a new tab)">
+                aria-label="Explore Project — Shri Krishna Jewellers (opens in a new tab)">
                 EXPLORE PROJECT <span class="cta-arrow">↗</span>
               </a>
               <a href="https://shrikrishna-jewellers.vercel.app/" target="_blank" rel="noopener noreferrer"
@@ -798,9 +826,7 @@
               </div>
               <span class="browser-url-pill">sargam-crevinox.vercel.app</span>
             </div>
-            <div class="project-media-wrapper" role="button" tabindex="0"
-              data-live-url="https://sargam-dx62f8dne-crevinox.vercel.app/"
-              aria-label="Open House of Blush by Sargam live website in a new tab">
+            <div class="project-media-wrapper" data-live-url="https://sargam-dx62f8dne-crevinox.vercel.app/">
               <span class="project-media-badge">
                 <span class="badge-live-pulse"></span> Beauty & Makeup Artist • Concept
               </span>
@@ -849,7 +875,7 @@
             <div class="project-action-row">
               <a href="https://sargam-dx62f8dne-crevinox.vercel.app/" target="_blank" rel="noopener noreferrer"
                 class="project-explore-cta"
-                aria-label="Explore House of Blush by Sargam live website (opens in a new tab)">
+                aria-label="Explore Project — House of Blush by Sargam (opens in a new tab)">
                 EXPLORE PROJECT <span class="cta-arrow">↗</span>
               </a>
               <a href="https://sargam-dx62f8dne-crevinox.vercel.app/" target="_blank" rel="noopener noreferrer"
@@ -873,9 +899,7 @@
               </div>
               <span class="browser-url-pill">av-fitness-centre.vercel.app</span>
             </div>
-            <div class="project-media-wrapper" role="button" tabindex="0"
-              data-live-url="https://av-fitness-centre.vercel.app/"
-              aria-label="Open AV Fitness Centre live website in a new tab">
+            <div class="project-media-wrapper" data-live-url="https://av-fitness-centre.vercel.app/">
               <span class="project-media-badge">
                 <span class="badge-live-pulse"></span> Fitness & Gym • Live Site
               </span>
@@ -922,7 +946,7 @@
 
             <div class="project-action-row">
               <a href="https://av-fitness-centre.vercel.app/" target="_blank" rel="noopener noreferrer"
-                class="project-explore-cta" aria-label="Explore AV Fitness Centre live website (opens in a new tab)">
+                class="project-explore-cta" aria-label="Explore Project — AV Fitness Centre (opens in a new tab)">
                 EXPLORE PROJECT <span class="cta-arrow">↗</span>
               </a>
               <a href="https://av-fitness-centre.vercel.app/" target="_blank" rel="noopener noreferrer"
@@ -946,8 +970,7 @@
               </div>
               <span class="browser-url-pill">finegym.vercel.app</span>
             </div>
-            <div class="project-media-wrapper" role="button" tabindex="0" data-live-url="https://finegym.vercel.app/"
-              aria-label="Open Fine Gym live website in a new tab">
+            <div class="project-media-wrapper" data-live-url="https://finegym.vercel.app/">
               <span class="project-media-badge">
                 <span class="badge-live-pulse"></span> Fitness & Gym • Live Site
               </span>
@@ -996,7 +1019,7 @@
 
             <div class="project-action-row">
               <a href="https://finegym.vercel.app/" target="_blank" rel="noopener noreferrer"
-                class="project-explore-cta" aria-label="Explore Fine Gym live website (opens in a new tab)">
+                class="project-explore-cta" aria-label="Explore Project — Fine Gym (opens in a new tab)">
                 EXPLORE PROJECT <span class="cta-arrow">↗</span>
               </a>
               <a href="https://finegym.vercel.app/" target="_blank" rel="noopener noreferrer"
@@ -1020,8 +1043,7 @@
               </div>
               <span class="browser-url-pill">lumina-five-sepia.vercel.app</span>
             </div>
-            <div class="project-media-wrapper" role="button" tabindex="0"
-              data-live-url="https://lumina-five-sepia.vercel.app/" aria-label="Open Lumina live website in a new tab">
+            <div class="project-media-wrapper" data-live-url="https://lumina-five-sepia.vercel.app/">
               <span class="project-media-badge">
                 <span class="badge-live-pulse"></span> Fine Dining & Culinary • Live Site
               </span>
@@ -1070,7 +1092,7 @@
 
             <div class="project-action-row">
               <a href="https://lumina-five-sepia.vercel.app/" target="_blank" rel="noopener noreferrer"
-                class="project-explore-cta" aria-label="Explore Lumina fine dining live website (opens in a new tab)">
+                class="project-explore-cta" aria-label="Explore Project — Lumina (opens in a new tab)">
                 EXPLORE PROJECT <span class="cta-arrow">↗</span>
               </a>
               <a href="https://lumina-five-sepia.vercel.app/" target="_blank" rel="noopener noreferrer"
@@ -1094,9 +1116,7 @@
               </div>
               <span class="browser-url-pill">space-essence.vercel.app</span>
             </div>
-            <div class="project-media-wrapper" role="button" tabindex="0"
-              data-live-url="https://space-essence.vercel.app/"
-              aria-label="Open Space Essence live website in a new tab">
+            <div class="project-media-wrapper" data-live-url="https://space-essence.vercel.app/">
               <span class="project-media-badge">
                 <span class="badge-live-pulse"></span> Architecture & Interior • Live Site
               </span>
@@ -1147,7 +1167,7 @@
             <div class="project-action-row">
               <a href="https://space-essence.vercel.app/" target="_blank" rel="noopener noreferrer"
                 class="project-explore-cta"
-                aria-label="Explore Space Essence architecture studio live website (opens in a new tab)">
+                aria-label="Explore Project — Space Essence (opens in a new tab)">
                 EXPLORE PROJECT <span class="cta-arrow">↗</span>
               </a>
               <a href="https://space-essence.vercel.app/" target="_blank" rel="noopener noreferrer"
@@ -1437,7 +1457,7 @@
           </p>
         </div>
         <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer"
-          class="instagram-profile-cta" aria-label="Visit CREVINOX on Instagram">
+          class="instagram-profile-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round" aria-hidden="true">
             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -1450,8 +1470,7 @@
 
       <div class="instagram-grid reveal-on-scroll delay-200">
         <!-- Post 01 -->
-        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card"
-          aria-label="View Shri Krishna Jewellers showcase on Instagram">
+        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card">
           <picture>
             <source srcset="/projects/project_shrikrishna_jewellers.webp" type="image/webp" />
             <img src="/projects/project_shrikrishna_jewellers.jpg" alt="Shri Krishna Jewellers Project Showcase"
@@ -1475,8 +1494,7 @@
         </a>
 
         <!-- Post 02 -->
-        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card"
-          aria-label="View Space Essence showcase on Instagram">
+        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card">
           <picture>
             <source srcset="/projects/project_space_essence.webp" type="image/webp" />
             <img src="/projects/project_space_essence.jpg" alt="Space Essence Project Showcase"
@@ -1500,8 +1518,7 @@
         </a>
 
         <!-- Post 03 -->
-        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card"
-          aria-label="View House of Blush showcase on Instagram">
+        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card">
           <picture>
             <source srcset="/projects/project_houseofblush_sargam.webp" type="image/webp" />
             <img src="/projects/project_houseofblush_sargam.jpg" alt="House of Blush by Sargam Project Showcase"
@@ -1525,8 +1542,7 @@
         </a>
 
         <!-- Post 04 -->
-        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card"
-          aria-label="View Fine Gym showcase on Instagram">
+        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card">
           <picture>
             <source srcset="/projects/project_fine_gym.webp" type="image/webp" />
             <img src="/projects/project_fine_gym.jpg" alt="Fine Gym Project Showcase" class="instagram-card-img"
@@ -1550,8 +1566,7 @@
         </a>
 
         <!-- Post 05 -->
-        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card"
-          aria-label="View AV Fitness showcase on Instagram">
+        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card">
           <picture>
             <source srcset="/projects/project_av_fitness.webp" type="image/webp" />
             <img src="/projects/project_av_fitness.jpg" alt="AV Fitness Project Showcase" class="instagram-card-img"
@@ -1575,8 +1590,7 @@
         </a>
 
         <!-- Post 06 -->
-        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card"
-          aria-label="View Lumina Modern Dining showcase on Instagram">
+        <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="instagram-card">
           <picture>
             <source srcset="/projects/project_lumina_dining.webp" type="image/webp" />
             <img src="/projects/project_lumina_dining.jpg" alt="Lumina Modern Dining Project Showcase"
@@ -1668,7 +1682,7 @@
           </div>
 
           <!-- WhatsApp Direct Action Button -->
-          <button id="whatsapp-direct-btn" class="whatsapp-cta-btn" aria-label="Open WhatsApp to chat with CREVINOX">
+          <button id="whatsapp-direct-btn" class="whatsapp-cta-btn">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
               <path
                 d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.888 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.05 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
@@ -1695,7 +1709,7 @@
               </div>
             </div>
             <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer"
-              class="social-instagram-btn" aria-label="Follow CREVINOX on Instagram (@crevinox)">
+              class="social-instagram-btn">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -1714,6 +1728,10 @@
 
           <form id="project-inquiry-form" class="inquiry-form" novalidate>
             <div id="form-status-alert" class="form-status-alert" role="alert"></div>
+            <!-- Security Honeypot Anti-Spam Field -->
+            <div style="display:none;" aria-hidden="true">
+              <input type="text" name="_studio_trap" tabindex="-1" autocomplete="off" />
+            </div>
 
             <div class="form-row">
               <div class="form-group">

@@ -10,6 +10,13 @@
   will-change: opacity, transform;
 }
 
+/* Above-the-fold hero elements must paint immediately to guarantee 100/100 LCP and FCP */
+.hero-section .reveal-on-scroll {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
 .reveal-on-scroll.is-revealed {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -61,20 +68,21 @@
   height: 2px;
   background: linear-gradient(90deg, var(--accent-cyan), transparent);
   box-shadow: 0 0 8px rgba(56, 189, 248, 0.5);
+  transform-origin: left;
   animation: cyberAccentSweep 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
 }
 
 @keyframes cyberAccentSweep {
   0% {
-    width: 0px;
+    transform: scaleX(0);
     opacity: 0;
   }
   50% {
-    width: 60px;
+    transform: scaleX(1.6);
     opacity: 1;
   }
   100% {
-    width: 36px;
+    transform: scaleX(1);
     opacity: 0.85;
   }
 }

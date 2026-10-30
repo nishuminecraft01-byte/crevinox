@@ -10,39 +10,15 @@ export function initNavigation() {
   const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
   const sections = document.querySelectorAll('section[id]');
 
-  // 1. Header scroll effect with rAF throttling to eliminate forced reflows
+  // 1. Header scroll effect with rAF throttling (Zero layout recalculation)
   let ticking = false;
+  let isScrolled = false;
   const updateScrollState = () => {
     if (!header) return;
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-
-    // Scroll spy only if user has scrolled
-    if (window.scrollY > 100) {
-      let currentId = '';
-      const scrollPos = window.scrollY + 200;
-
-      sections.forEach(sec => {
-        const top = sec.offsetTop;
-        const height = sec.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          currentId = sec.getAttribute('id');
-        }
-      });
-
-      if (currentId) {
-        navLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          if (href === `#${currentId}`) {
-            link.classList.add('active');
-          } else {
-            link.classList.remove('active');
-          }
-        });
-      }
+    const shouldScroll = window.scrollY > 30;
+    if (shouldScroll !== isScrolled) {
+      isScrolled = shouldScroll;
+      header.classList.toggle('scrolled', isScrolled);
     }
     ticking = false;
   };
@@ -55,6 +31,32 @@ export function initNavigation() {
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
+
+  // High-performance IntersectionObserver for scroll spy (0 forced reflows)
+  if ('IntersectionObserver' in window && sections.length > 0) {
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          if (currentId) {
+            navLinks.forEach(link => {
+              const href = link.getAttribute('href');
+              if (href === `#${currentId}`) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -65% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(sec => sectionObserver.observe(sec));
+  }
 
   // 2. Mobile drawer open/close
   const toggleMobileMenu = (open) => {

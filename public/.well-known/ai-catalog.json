@@ -1,0 +1,21 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "CREVINOX Digital Studio",
+    "documentationUrl": "https://crevinox.com/llms.txt"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:crevinox.com:service:digital-studio",
+      "displayName": "CREVINOX Digital Studio Capabilities",
+      "type": "application/agent-card+json",
+      "url": "https://crevinox.com/llms.txt",
+      "description": "CREVINOX crafts bespoke luxury digital experiences, 3D WebGL interfaces, modern web applications, and performance engineering.",
+      "representativeQueries": [
+        "hire luxury web design studio",
+        "bespoke 3D WebGL developer",
+        "performance-first web agency"
+      ]
+    }
+  ]
+}

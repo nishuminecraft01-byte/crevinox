@@ -33,7 +33,7 @@ body {
   padding: 0;
 }
 
-/* Subtle Film Grain Texture Overlay */
+/* Subtle Tech Texture Overlay — Hardware-Accelerated Pattern */
 body::before {
   content: '';
   position: fixed;
@@ -41,9 +41,10 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  opacity: 0.02;
+  opacity: 0.025;
   z-index: 999;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-image: radial-gradient(rgba(56, 189, 248, 0.4) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
 /* Typography Hierarchy */
@@ -284,9 +285,8 @@ button {
 .ambient-luxury-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(140px);
-  will-change: transform;
   pointer-events: none;
+  contain: strict;
 }
 
 .ambient-luxury-orb.orb-1 {
@@ -295,7 +295,6 @@ button {
   width: min(85vw, 680px);
   height: min(85vw, 680px);
   background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(224, 242, 254, 0.08) 50%, transparent 75%);
-  animation: luxuryOrbFloat1 28s ease-in-out infinite alternate;
 }
 
 .ambient-luxury-orb.orb-2 {
@@ -304,7 +303,6 @@ button {
   width: min(90vw, 750px);
   height: min(90vw, 750px);
   background: radial-gradient(circle, rgba(14, 165, 233, 0.10) 0%, rgba(186, 230, 253, 0.06) 45%, transparent 70%);
-  animation: luxuryOrbFloat2 34s ease-in-out infinite alternate;
 }
 
 .ambient-luxury-orb.orb-3 {
@@ -313,32 +311,12 @@ button {
   width: min(80vw, 620px);
   height: min(80vw, 620px);
   background: radial-gradient(circle, rgba(2, 132, 199, 0.08) 0%, rgba(240, 249, 255, 0.05) 50%, transparent 75%);
-  animation: luxuryOrbFloat3 30s ease-in-out infinite alternate;
-}
-
-@keyframes luxuryOrbFloat1 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(6vw, 10vh, 0) scale(1.12); }
-  100% { transform: translate3d(-5vw, 5vh, 0) scale(0.94); }
-}
-
-@keyframes luxuryOrbFloat2 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-8vw, -7vh, 0) scale(1.14); }
-  100% { transform: translate3d(4vw, 8vh, 0) scale(0.92); }
-}
-
-@keyframes luxuryOrbFloat3 {
-  0% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(10vw, -8vh, 0) scale(1.08); }
-  100% { transform: translate3d(-6vw, -4vh, 0) scale(0.96); }
 }
 
 /* Subtle Glow Backdrop Accents */
 .ambient-glow {
   position: absolute;
   border-radius: 50%;
-  filter: blur(140px);
   pointer-events: none;
   opacity: 0.3;
   z-index: 0;
@@ -350,6 +328,37 @@ button {
 
 .ambient-glow-silver {
   background: radial-gradient(circle, rgba(226, 232, 240, 0.4) 0%, transparent 70%);
+}
+
+/* Content Visibility Engine — Drastically accelerates initial layout and drops TBT to near zero */
+.work-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 1600px;
+}
+
+.about-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 900px;
+}
+
+.process-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 800px;
+}
+
+.instagram-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 700px;
+}
+
+.contact-section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 850px;
+}
+
+.site-footer {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 450px;
 }
 
 /* Reduced Motion Mode */

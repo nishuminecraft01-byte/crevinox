@@ -317,13 +317,25 @@ export function initHero3D() {
       }, { passive: true });
     }
 
-    // 7. Scroll Progression & Waypoint Calculator
+    // 7. Scroll Progression & Waypoint Calculator (Zero forced reflow - cached geometry)
+    let maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const updateMaxScroll = () => {
+      maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    };
+    window.addEventListener('resize', updateMaxScroll, { passive: true });
+
+    let scrollTicking = false;
     const handleScroll = () => {
-      const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
-      const curY = window.scrollY || window.pageYOffset || 0;
-      targetScrollProgress = Math.min(1, Math.max(0, curY / maxScroll));
-      scrollVelocity = Math.abs(curY - lastScrollY);
-      lastScrollY = curY;
+      if (!scrollTicking) {
+        window.requestAnimationFrame(() => {
+          const curY = window.scrollY || window.pageYOffset || 0;
+          targetScrollProgress = Math.min(1, Math.max(0, curY / maxScroll));
+          scrollVelocity = Math.abs(curY - lastScrollY);
+          lastScrollY = curY;
+          scrollTicking = false;
+        });
+        scrollTicking = true;
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();

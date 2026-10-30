@@ -30,7 +30,10 @@ export function getInitialTheme() {
 
 export function applyTheme(theme, persist = true) {
   const root = document.documentElement;
-  root.setAttribute('data-theme', theme);
+  const changed = root.getAttribute('data-theme') !== theme;
+  if (changed) {
+    root.setAttribute('data-theme', theme);
+  }
 
   if (persist) {
     try {
@@ -65,10 +68,12 @@ export function applyTheme(theme, persist = true) {
     }
   });
 
-  // Dispatch global event for 3D WebGL renderer and listeners
-  window.dispatchEvent(new CustomEvent('crevinox-theme-change', {
-    detail: { theme }
-  }));
+  // Dispatch global event for 3D WebGL renderer and listeners only if changed
+  if (changed) {
+    window.dispatchEvent(new CustomEvent('crevinox-theme-change', {
+      detail: { theme }
+    }));
+  }
 }
 
 export function initTheme() {
@@ -110,3 +115,4 @@ export function initTheme() {
     });
   }
 }
+

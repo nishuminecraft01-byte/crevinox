@@ -1,4 +1,5 @@
 /* CREVINOX Design System - Main Stylesheet */
+@import './fonts.css';
 @import './variables.css';
 @import './base.css';
 @import './intro.css';

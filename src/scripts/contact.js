@@ -88,27 +88,53 @@ export function initContactForm() {
     });
   });
 
-  // 5. Form Submit Handler
+  // 5. Form Submit Handler with Anti-Spam Honeypot & Rate-Limiting Protection
+  let lastSubmitTime = 0;
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = form.querySelector('#client-name')?.value.trim();
-      const email = form.querySelector('#client-email')?.value.trim();
-      const business = form.querySelector('#client-business')?.value.trim() || 'Not specified';
-      const details = form.querySelector('#client-details')?.value.trim();
+      // Honeypot Protection: Bots fill hidden trap field
+      const honeypot = form.querySelector('input[name="_studio_trap"]')?.value;
+      if (honeypot) {
+        // Silently deflect spam bots
+        showStatus('Inquiry submitted successfully.', 'success');
+        return;
+      }
+
+      // Rate Limiting Protection: Prevent form flooding (8-second cooldown)
+      const now = Date.now();
+      if (now - lastSubmitTime < 8000) {
+        showStatus('Please wait a moment before sending another inquiry.', 'error');
+        return;
+      }
+
+      const rawName = form.querySelector('#client-name')?.value.trim() || '';
+      const rawEmail = form.querySelector('#client-email')?.value.trim() || '';
+      const rawBusiness = form.querySelector('#client-business')?.value.trim() || 'Not specified';
+      const rawDetails = form.querySelector('#client-details')?.value.trim() || '';
+
+      // Input sanitization: Strip potentially dangerous HTML/script tags
+      const sanitize = (str) => str.replace(/<[^>]*>?/gm, '');
+      const name = sanitize(rawName);
+      const email = sanitize(rawEmail);
+      const business = sanitize(rawBusiness);
+      const details = sanitize(rawDetails);
 
       if (!name || !email || !details) {
         showStatus('Please fill in all required fields (Name, Email, and Project Details).', 'error');
         return;
       }
 
-      // Email validation
+      // Strict email format validation
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
         showStatus('Please provide a valid email address.', 'error');
         return;
       }
+
+      lastSubmitTime = now;
 
       // Format clean inquiry payload
       const subject = encodeURIComponent(`CREVINOX Project Inquiry: ${name} — ${business}`);

@@ -11,6 +11,10 @@ export default defineConfig({
     port: 4173
   },
   build: {
+    target: 'es2022',
+    modulePreload: {
+      polyfill: false
+    },
     rollupOptions: {
       input: {
         main: resolve(import.meta.dirname, 'index.html'),

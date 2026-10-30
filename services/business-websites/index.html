@@ -11,7 +11,10 @@
     content="Business website development, Website design company for business, Corporate website design, Professional business website" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://crevinox.com/services/business-websites/" />
+  <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
   <meta name="theme-color" content="#F8FAFC" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <!-- Open Graph / Social Sharing -->
   <meta property="og:locale" content="en_US" />
@@ -35,11 +38,9 @@
   <link rel="apple-touch-icon" href="/favicon.png" />
 
   <!-- Google Fonts Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
+    <!-- High-Performance Self-Hosted Critical Fonts -->
+  <link rel="preload" href="/fonts/sora-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/plus-jakarta-sans-400.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Schema Markup -->
   <script type="application/ld+json">
@@ -152,19 +153,25 @@
           </svg>
         </a>
         <button id="theme-toggle-btn" class="nav-theme-toggle" aria-label="Toggle dark and light theme" title="Toggle theme">
-          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" stroke-dasharray="2 2" opacity="0.6"></circle>
+            <circle cx="12" cy="12" r="4.2" fill="currentColor" fill-opacity="0.25"></circle>
+            <circle cx="12" cy="12" r="2.2" fill="currentColor"></circle>
+            <line x1="12" y1="1.5" x2="12" y2="3.8"></line>
+            <line x1="12" y1="20.2" x2="12" y2="22.5"></line>
+            <line x1="1.5" y1="12" x2="3.8" y2="12"></line>
+            <line x1="20.2" y1="12" x2="22.5" y2="12"></line>
+            <line x1="4.5" y1="4.5" x2="6.2" y2="6.2"></line>
+            <line x1="17.8" y1="17.8" x2="19.5" y2="19.5"></line>
+            <line x1="4.5" y1="19.5" x2="6.2" y2="17.8"></line>
+            <line x1="17.8" y1="6.2" x2="19.5" y2="4.5"></line>
           </svg>
-          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" fill="currentColor" fill-opacity="0.2"></path>
+            <path d="M7 6 C10 4, 15 5, 18 9" stroke-dasharray="1.5 2" opacity="0.75"></path>
+            <circle cx="17.5" cy="4.5" r="1.2" fill="currentColor"></circle>
+            <circle cx="20.2" cy="8.2" r="0.8" fill="currentColor"></circle>
+            <circle cx="10" cy="14" r="1" fill="currentColor" opacity="0.8"></circle>
           </svg>
         </button>
         <a href="/#contact" class="btn nav-cta-btn">

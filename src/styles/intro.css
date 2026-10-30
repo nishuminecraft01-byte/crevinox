@@ -15,24 +15,23 @@
   overflow: hidden;
   touch-action: none;
   overscroll-behavior: contain;
-  transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
-    visibility 800ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 400ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform, visibility;
+  contain: layout paint;
   cursor: pointer;
 }
 
-/* Cosmic Cyber Grid & Stardust Texture */
+/* Cosmic Cyber Grid & Stardust Texture — Pure Hardware-Accelerated */
 .brand-intro-overlay::before {
   content: '';
   position: absolute;
   inset: 0;
-  opacity: 0.04;
+  opacity: 0.05;
   pointer-events: none;
-  background-image:
-    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.14) 1px, transparent 1px),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  background-size: 32px 32px, 200px 200px;
+  background-image: radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.25) 1px, transparent 1px);
+  background-size: 32px 32px;
   z-index: 1;
 }
 
@@ -48,6 +47,7 @@
   z-index: 4;
   pointer-events: none;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 .brand-intro-overlay.phase-1 .intro-hud-scanner,
@@ -58,7 +58,7 @@
 
 @keyframes hudLaserSweep {
   0% {
-    top: -5%;
+    transform: translateY(-5vh);
     opacity: 0;
   }
   15% {
@@ -68,7 +68,7 @@
     opacity: 0.85;
   }
   100% {
-    top: 105%;
+    transform: translateY(105vh);
     opacity: 0;
   }
 }
@@ -87,7 +87,6 @@
       rgba(2, 132, 199, 0.12) 35%,
       rgba(7, 18, 38, 0.06) 60%,
       transparent 75%);
-  filter: blur(48px);
   opacity: 0;
   pointer-events: none;
   transition: opacity 900ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -468,9 +467,10 @@
 }
 
 .brand-intro-overlay.intro-complete {
-  display: none !important;
+  opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
+  contain: strict !important;
 }
 
 /* Minimal Skip Intro Button */

@@ -14,9 +14,9 @@
 }
 
 .site-header.scrolled .nav-container {
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(2, 132, 199, 0.22);
-  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08), 0 0 20px rgba(2, 132, 199, 0.05);
+  background: var(--nav-bg-scrolled);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-md);
 }
 
 .nav-container {
@@ -27,13 +27,13 @@
   gap: 1.5rem;
   max-width: var(--container-wide);
   margin-inline: auto;
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: var(--nav-bg);
+  border: var(--nav-border);
   border-radius: var(--radius-full);
   padding: 0.65rem 1.6rem;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+  box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
 }
 
@@ -121,7 +121,7 @@
 }
 
 .brand-text {
-  background: linear-gradient(135deg, #0F172A 0%, #0369A1 55%, #0284C7 100%);
+  background: var(--brand-text-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -185,7 +185,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: rgba(15, 23, 42, 0.04);
+  background: var(--pill-bg);
   border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
   display: inline-flex;
@@ -197,7 +197,7 @@
 }
 
 .nav-social-link:hover {
-  background: #FFFFFF;
+  background: var(--bg-surface);
   border-color: var(--accent-cyan);
   color: var(--accent-blue);
   box-shadow: var(--shadow-sm);
@@ -212,6 +212,66 @@
 
 .nav-social-link:hover svg {
   transform: scale(1.08);
+}
+
+/* Theme Toggle Button — Cyber Luxury Switcher */
+.nav-theme-toggle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--pill-bg);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.nav-theme-toggle:hover {
+  background: var(--bg-surface);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px) scale(1.05);
+}
+
+.nav-theme-toggle svg {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  transition: transform 0.4s var(--ease-cinematic), opacity 0.3s ease;
+}
+
+/* In Dark Theme: Show Sun icon so user can switch to Light */
+[data-theme="dark"] .nav-theme-toggle .theme-icon-sun,
+:root:not([data-theme="light"]) .nav-theme-toggle .theme-icon-sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  color: #FBBF24;
+}
+
+[data-theme="dark"] .nav-theme-toggle .theme-icon-moon,
+:root:not([data-theme="light"]) .nav-theme-toggle .theme-icon-moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.4);
+}
+
+/* In Light Theme: Show Moon icon so user can switch to Dark */
+[data-theme="light"] .nav-theme-toggle .theme-icon-sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.4);
+}
+
+[data-theme="light"] .nav-theme-toggle .theme-icon-moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+  color: #0284C7;
 }
 
 .nav-cta-btn {
@@ -283,7 +343,7 @@
 .mobile-toggle-line {
   width: 20px;
   height: 1.5px;
-  background-color: #0F172A;
+  background-color: var(--text-primary);
   border-radius: 2px;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.2s ease;
@@ -334,7 +394,7 @@
     max-width: 360px;
     height: 100vh;
     height: 100dvh;
-    background: rgba(255, 255, 255, 0.98);
+    background: var(--bg-surface-elevated);
     border-left: 1px solid var(--border-subtle);
     padding: 6rem 2rem 3rem;
     z-index: 100;
@@ -343,7 +403,9 @@
     pointer-events: none;
     transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1),
       visibility 400ms ease;
-    box-shadow: -20px 0 50px rgba(15, 23, 42, 0.12);
+    box-shadow: -20px 0 50px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
   }
 
   .mobile-menu-drawer.is-open {
@@ -384,15 +446,101 @@
     border-top: 1px solid var(--border-subtle);
   }
 
+  /* Mobile Theme Switcher Row */
+  .mobile-theme-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.85rem 1.15rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .mobile-theme-row:hover {
+    border-color: var(--accent-cyan);
+    background: var(--card-bg-hover);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .mobile-theme-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mobile-theme-icon-box {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile-theme-icon-box svg {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    transition: transform 0.4s var(--ease-cinematic), opacity 0.3s ease;
+  }
+
+  /* In Dark Theme: mobile theme toggle displays sun */
+  [data-theme="dark"] .mobile-theme-icon-box .theme-icon-sun,
+  :root:not([data-theme="light"]) .mobile-theme-icon-box .theme-icon-sun {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: #FBBF24;
+  }
+
+  [data-theme="dark"] .mobile-theme-icon-box .theme-icon-moon,
+  :root:not([data-theme="light"]) .mobile-theme-icon-box .theme-icon-moon {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.4);
+  }
+
+  /* In Light Theme: mobile theme toggle displays moon */
+  [data-theme="light"] .mobile-theme-icon-box .theme-icon-sun {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.4);
+  }
+
+  [data-theme="light"] .mobile-theme-icon-box .theme-icon-moon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    color: #0284C7;
+  }
+
+  .mobile-theme-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-full);
+    background: var(--pill-bg);
+    border: 1px solid var(--pill-border);
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+  }
+
   .mobile-social-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.85rem 1.15rem;
-    background: #F1F5F9;
+    background: var(--card-bg);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
-    color: #0F172A;
+    color: var(--text-primary);
     text-decoration: none;
     transition: all var(--transition-normal);
     font-family: var(--font-body);
@@ -402,7 +550,7 @@
 
   .mobile-social-row:hover {
     border-color: var(--accent-cyan);
-    background: #FFFFFF;
+    background: var(--card-bg-hover);
     box-shadow: var(--shadow-sm);
   }
 

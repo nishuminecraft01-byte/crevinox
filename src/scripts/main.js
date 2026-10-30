@@ -1,10 +1,14 @@
 import '../styles/index.css';
+import { initTheme } from './theme.js';
 import { initCinematicIntro } from './intro.js';
 import { initNavigation } from './navigation.js';
 import { initWorkPortfolio } from './work.js';
 import { initContactForm } from './contact.js';
 import { initScrollReveal } from './scroll-reveal.js';
 import { initAnalytics } from './analytics.js';
+
+// 0. Initialize Luxury Theme (Dark / Light) immediately
+initTheme();
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Cinematic Intro Screen

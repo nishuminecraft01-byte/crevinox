@@ -113,9 +113,32 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Sora:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" />
   </noscript>
 
-  <!-- Critical Light Luxury Styles (Eliminates FOUC and CLS) -->
+  <!-- Zero-FOUC Theme Pre-Initialization -->
+  <script>
+    (function () {
+      try {
+        var s = localStorage.getItem('crevinox_theme');
+        var t = s || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Critical Theme Styles (Eliminates FOUC and CLS) -->
   <style>
-    :root {
+    :root,
+    [data-theme="dark"] {
+      --bg-primary: #030712;
+      --bg-secondary: #070E1A;
+      --text-primary: #FFFFFF;
+      --text-secondary: #94A3B8;
+      --accent-cyan: #38BDF8;
+      --accent-blue: #0284C7;
+    }
+
+    [data-theme="light"] {
       --bg-primary: #F8FAFC;
       --bg-secondary: #F1F5F9;
       --text-primary: #0F172A;
@@ -125,16 +148,16 @@
     }
 
     html {
-      background-color: #F8FAFC !important;
-      color: #0F172A !important;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       overflow-x: clip;
       max-width: 100%;
       scrollbar-gutter: stable;
     }
 
     body {
-      background-color: #F8FAFC !important;
-      color: #0F172A !important;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
       margin: 0;
       padding: 0;
       overflow-x: clip;
@@ -143,7 +166,7 @@
     }
 
     .brand-intro-overlay {
-      background-color: #F8FAFC !important;
+      background-color: var(--bg-primary);
       touch-action: none;
       overscroll-behavior: contain;
     }
@@ -308,7 +331,7 @@
         </ul>
       </nav>
 
-      <!-- Right: Action CTA & Mobile Trigger -->
+      <!-- Right: Action CTA, Theme Toggle & Mobile Trigger -->
       <div class="nav-actions">
         <div class="header-status-badge" title="Accepting Select Projects for Q2/Q3 2026">
           <span class="header-status-dot"></span>
@@ -323,6 +346,23 @@
             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
           </svg>
         </a>
+        <!-- Cyber Luxury Dual Theme Switcher (Dark / Light) -->
+        <button id="theme-toggle-btn" class="nav-theme-toggle" aria-label="Toggle dark and light theme" title="Toggle theme">
+          <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
         <a href="#contact" class="btn nav-cta-btn">
           Start a Project <span class="btn-icon">↗</span>
         </a>
@@ -346,6 +386,30 @@
     </ul>
 
     <div class="mobile-nav-footer">
+      <!-- Mobile Theme Switcher Row -->
+      <button id="mobile-theme-toggle" class="mobile-theme-row" aria-label="Toggle theme">
+        <div class="mobile-theme-left">
+          <div class="mobile-theme-icon-box">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </div>
+          <span class="mobile-theme-text">Switch Mode</span>
+        </div>
+        <span class="mobile-theme-pill">Theme</span>
+      </button>
+
       <a href="https://www.instagram.com/crevinox/" target="_blank" rel="noopener noreferrer" class="mobile-social-row"
         aria-label="Visit CREVINOX on Instagram">
         <div class="mobile-social-left">

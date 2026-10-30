@@ -55,22 +55,22 @@ export function initHero3D() {
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 0.95;
 
-    // 4. Lighting System (Soft Daylight Studio Rig — Light Theme Luxury)
-    const ambientLight = new THREE.AmbientLight(0xffffff, 2.4);
+    // 4. Lighting System (Adaptive Studio Rig for Dark & Light Themes)
+    const ambientLight = new THREE.AmbientLight(0x060e1d, 2.2);
     scene.add(ambientLight);
 
-    // Sapphire Azure Rim Light (Restrained & Elegant)
-    const cyanRimLight = new THREE.DirectionalLight(0x0284C7, 1.8);
+    // Rim Light (Restrained & Elegant)
+    const cyanRimLight = new THREE.DirectionalLight(0x38BDF8, 2.2);
     cyanRimLight.position.set(4, 3, 3);
     scene.add(cyanRimLight);
 
-    // Daylight Pure White Front Fill
-    const silverKeyLight = new THREE.DirectionalLight(0xffffff, 2.0);
+    // Frost Platinum Front Fill
+    const silverKeyLight = new THREE.DirectionalLight(0xE2E8F0, 1.8);
     silverKeyLight.position.set(-3, 4, 4);
     scene.add(silverKeyLight);
 
-    // Sky Blue Bottom Fill
-    const bottomFillLight = new THREE.PointLight(0x38BDF8, 1.2, 18);
+    // Deep Bottom Fill
+    const bottomFillLight = new THREE.PointLight(0x0284C7, 1.5, 18);
     bottomFillLight.position.set(0, -4, 2);
     scene.add(bottomFillLight);
 
@@ -227,6 +227,66 @@ export function initHero3D() {
     logoGroup.add(particles);
 
     scene.add(logoGroup);
+
+    // Dynamic Theme Lighting & Material Synchronizer
+    function updateThemeMaterials(theme) {
+      const isLight = theme === 'light';
+
+      if (ambientLight) {
+        ambientLight.color.setHex(isLight ? 0xffffff : 0x060e1d);
+        ambientLight.intensity = isLight ? 2.4 : 2.2;
+      }
+      if (cyanRimLight) {
+        cyanRimLight.color.setHex(isLight ? 0x0284C7 : 0x38BDF8);
+        cyanRimLight.intensity = isLight ? 1.8 : 2.2;
+      }
+      if (silverKeyLight) {
+        silverKeyLight.color.setHex(isLight ? 0xffffff : 0xE2E8F0);
+        silverKeyLight.intensity = isLight ? 2.0 : 1.8;
+      }
+      if (bottomFillLight) {
+        bottomFillLight.color.setHex(isLight ? 0x38BDF8 : 0x0284C7);
+        bottomFillLight.intensity = isLight ? 1.2 : 1.5;
+      }
+
+      if (ring1 && ring1.material) {
+        ring1.material.color.setHex(isLight ? 0x0284C7 : 0x7DD3FC);
+        ring1.material.emissive.setHex(0x0284C7);
+        ring1.material.opacity = isLight ? 0.65 : 0.55;
+      }
+      if (ring2 && ring2.material) {
+        ring2.material.color.setHex(isLight ? 0x334155 : 0xF1F5F9);
+        ring2.material.emissive.setHex(isLight ? 0x475569 : 0x38BDF8);
+        ring2.material.opacity = isLight ? 0.55 : 0.45;
+      }
+      if (ring3 && ring3.material) {
+        ring3.material.color.setHex(isLight ? 0x0EA5E9 : 0x38BDF8);
+        ring3.material.emissive.setHex(0x0284C7);
+        ring3.material.opacity = isLight ? 0.55 : 0.38;
+      }
+      if (particles && particles.material) {
+        particles.material.color.setHex(isLight ? 0x0284C7 : 0xBAE6FD);
+        particles.material.blending = isLight ? THREE.NormalBlending : THREE.AdditiveBlending;
+        particles.material.opacity = isLight ? 0.55 : 0.45;
+        particles.material.needsUpdate = true;
+      }
+
+      // Re-render immediately if idle
+      if (renderer && scene && camera) {
+        renderer.render(scene, camera);
+      }
+    }
+
+    // Apply current theme on mount
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateThemeMaterials(currentTheme);
+
+    // Listen for live theme switches
+    window.addEventListener('crevinox-theme-change', (e) => {
+      if (e.detail && e.detail.theme) {
+        updateThemeMaterials(e.detail.theme);
+      }
+    });
 
     // 6. Interactive Pointer & Touch Tracking with Gyroscope Tilt
     const handlePointerMove = (e) => {

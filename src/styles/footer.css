@@ -4,7 +4,7 @@
 
 .site-footer {
   position: relative;
-  background-color: rgba(241, 245, 249, 0.95);
+  background-color: var(--bg-surface-elevated);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border-subtle);
@@ -35,7 +35,7 @@
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: 0.16em;
-  color: #0F172A;
+  color: var(--text-primary);
   text-transform: uppercase;
   margin-bottom: 1.25rem;
 }
@@ -70,7 +70,7 @@
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #0F172A;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .footer-nav-link:hover {
-  color: #0F172A;
+  color: var(--text-primary);
   transform: translateX(4px);
 }
 
@@ -98,7 +98,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: #0F172A;
+  color: var(--text-primary);
   font-weight: 500;
 }
 
@@ -142,8 +142,8 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.35rem 0.85rem;
-  background: #F0F9FF;
-  border: 1px solid rgba(2, 132, 199, 0.2);
+  background: var(--pill-bg);
+  border: 1px solid var(--border-medium);
   border-radius: var(--radius-full);
   color: var(--accent-cyan);
   font-family: var(--font-mono);
@@ -155,9 +155,9 @@
 }
 
 .footer-replay-btn:hover {
-  background: #E0F2FE;
-  border-color: rgba(2, 132, 199, 0.4);
-  color: #0369A1;
+  background: var(--card-bg-hover);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
   box-shadow: 0 4px 14px rgba(2, 132, 199, 0.2);
   transform: translateY(-1px);
 }

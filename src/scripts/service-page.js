@@ -1,7 +1,11 @@
 import '../styles/index.css';
+import { initTheme } from './theme.js';
 import { initNavigation } from './navigation.js';
 import { initScrollReveal } from './scroll-reveal.js';
 import { initAnalytics, trackEvent } from './analytics.js';
+
+// 0. Initialize Luxury Theme (Dark / Light)
+initTheme();
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Navigation

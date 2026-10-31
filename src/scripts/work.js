@@ -1,6 +1,6 @@
 /**
  * CREVINOX — Official Client Project Portfolio Controller
- * Six Deployed Projects: Shri Krishna Jewellers, House of Blush by Sargam,
+ * Six Deployed Projects: Shri Krishna Jewellers, Hardcore Fitness Centre,
  * AV Fitness Centre, Fine Gym, Lumina, Space Essence.
  */
 
@@ -26,24 +26,24 @@ export const OFFICIAL_PROJECTS = [
     status: 'Live Deployed Experience'
   },
   {
-    id: 'house-of-blush',
+    id: 'hardcore-fitness',
     num: '02',
-    category: 'beauty',
-    categoryLabel: 'Beauty & Makeup Artist',
-    title: 'HOUSE OF BLUSH BY SARGAM',
-    description: 'A beauty-focused website concept created to present makeup artistry through an elegant and polished digital experience.',
-    liveUrl: 'https://sargam-dx62f8dne-crevinox.vercel.app/',
-    image: '/projects/project_houseofblush_sargam.jpg',
-    alt: 'CREVINOX beauty and makeup artist website project - House of Blush by Sargam',
-    location: 'Luxury Editorial Makeup Studio',
+    category: 'fitness',
+    categoryLabel: 'Fitness & Gym Centre',
+    title: 'HARDCORE FITNESS CENTRE',
+    description: 'A powerhouse gym and athletic performance website engineered with intense aesthetics, program showcases, and rapid membership inquiry flows.',
+    liveUrl: 'https://hardcore-fitness-centre.vercel.app/',
+    image: '/projects/project_hardcore_fitness.jpg',
+    alt: 'CREVINOX fitness and gym website project - Hardcore Fitness Centre in Dahisar East Mumbai',
+    location: 'Dahisar East, Mumbai, Maharashtra',
     highlights: [
-      'High-fashion bridal glam & editorial showcase',
-      'Refined editorial typography with warm terracotta & rose-gold tones',
-      'Curated bridal transformation lookbook gallery',
-      'Frictionless client consultation inquiry pathway'
+      'High-impact athletic design for Dahisar East premier strength facility',
+      'Strength, powerlifting, bodybuilding, and fat-loss program architecture',
+      'Intense, dark-luxury aesthetic with progressive overload mindset',
+      'Frictionless membership consultation and WhatsApp inquiry pathway'
     ],
-    scope: 'Luxury Beauty Identity, Bridal Portfolio, Editorial Web Design',
-    status: 'Live Website Concept'
+    scope: 'Athletic Gym Identity, Program Showcases, High-Impact Web Design',
+    status: 'Live Deployed Website'
   },
   {
     id: 'av-fitness-centre',

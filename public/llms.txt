@@ -15,7 +15,7 @@ CREVINOX builds fast, responsive, and visually distinctive digital experiences f
 ## Projects
 
 - [Shri Krishna Jewellers](https://shrikrishna-jewellers.vercel.app/): Dedicated digital experience and luxury gold, diamond, and bridal catalogue showcase for a jewellery enterprise.
-- [House of Blush by Sargam](https://sargam-dx62f8dne-crevinox.vercel.app/): Luxury beauty and bridal makeup artistry editorial website concept and consultation intake flow.
+- [Hardcore Fitness Centre](https://hardcore-fitness-centre.vercel.app/): High-impact strength, bodybuilding, and athletic performance fitness website in Dahisar East, Mumbai.
 - [AV Fitness Centre](https://av-fitness-centre.vercel.app/): High-contrast athletic facility digital flagship featuring strength programs, facility previews, and membership consultation.
 - [Fine Gym](https://finegym.vercel.app/): Premium fitness center web presence in Dahisar West, Mumbai featuring training schedules and interactive galleries.
 - [Lumina Modern Dining](https://lumina-five-sepia.vercel.app/): Sensory culinary digital showcase with signature gastronomy presentations and luxury typography.

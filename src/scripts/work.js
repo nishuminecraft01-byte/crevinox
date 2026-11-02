@@ -1,7 +1,7 @@
 /**
  * CREVINOX — Official Client Project Portfolio Controller
  * Six Deployed Projects: Shri Krishna Jewellers, Hardcore Fitness Centre,
- * AV Fitness Centre, Fine Gym, Lumina, Space Essence.
+ * Kesar & Kahani, Fine Gym, Lumina, Space Essence.
  */
 
 export const OFFICIAL_PROJECTS = [
@@ -46,23 +46,23 @@ export const OFFICIAL_PROJECTS = [
     status: 'Live Deployed Website'
   },
   {
-    id: 'av-fitness-centre',
+    id: 'kesar-kahani',
     num: '03',
-    category: 'fitness',
-    categoryLabel: 'Fitness & Gym',
-    title: 'AV FITNESS CENTRE',
-    description: "A fitness website designed to present the gym's digital presence, services, and brand identity.",
-    liveUrl: 'https://av-fitness-centre.vercel.app/',
-    image: '/projects/project_av_fitness.jpg',
-    alt: 'CREVINOX fitness centre website project - AV Fitness Centre in Kandivali East Mumbai',
-    location: 'Kandivali East, Mumbai, Maharashtra',
+    category: 'culinary',
+    categoryLabel: 'Café & Culinary Experience',
+    title: 'KESAR & KAHANI',
+    description: 'A premium Indian café experience designed to evoke warmth and legacy through authentic chai, artisanal coffee, and immersive digital storytelling.',
+    liveUrl: 'https://kesar-kahani.vercel.app/',
+    image: '/projects/project_kesar_kahani.jpg',
+    alt: 'CREVINOX premium cafe website project - Kesar & Kahani in Bandra West Mumbai',
+    location: 'Bandra West, Mumbai, Maharashtra',
     highlights: [
-      'Modern digital presence for Kandivali East athletic facility',
-      'Strength, conditioning, and goal-oriented training programs',
-      'High-contrast sporty aesthetics with energetic interactions',
-      'Instant membership consultation and location contact'
+      'Warm editorial cafe showcase for Bandra West flagship destination',
+      'Artisanal Masala Chai, Filter Coffee, Saffron Milk & Indian bites menu',
+      'Rich earthy aesthetics with virtual walkthrough and ambience gallery',
+      'Frictionless table reservation & inquiry intake pathway'
     ],
-    scope: 'Fitness Web Presence, Training Programs, Brand Identity',
+    scope: 'Café Brand Identity, Artisanal Menu Presentation, Digital Storytelling',
     status: 'Live Deployed Website'
   },
   {

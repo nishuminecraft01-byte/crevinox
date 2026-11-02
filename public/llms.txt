@@ -16,7 +16,7 @@ CREVINOX builds fast, responsive, and visually distinctive digital experiences f
 
 - [Shri Krishna Jewellers](https://shrikrishna-jewellers.vercel.app/): Dedicated digital experience and luxury gold, diamond, and bridal catalogue showcase for a jewellery enterprise.
 - [Hardcore Fitness Centre](https://hardcore-fitness-centre.vercel.app/): High-impact strength, bodybuilding, and athletic performance fitness website in Dahisar East, Mumbai.
-- [AV Fitness Centre](https://av-fitness-centre.vercel.app/): High-contrast athletic facility digital flagship featuring strength programs, facility previews, and membership consultation.
+- [Kesar & Kahani](https://kesar-kahani.vercel.app/): Premium Indian café digital experience in Bandra West, Mumbai, featuring artisanal chai, coffee, and ambient storytelling.
 - [Fine Gym](https://finegym.vercel.app/): Premium fitness center web presence in Dahisar West, Mumbai featuring training schedules and interactive galleries.
 - [Lumina Modern Dining](https://lumina-five-sepia.vercel.app/): Sensory culinary digital showcase with signature gastronomy presentations and luxury typography.
 - [Space Essence Design Studio](https://space-essence.vercel.app/): Architecture and interior design portfolio highlighting residential, commercial, 3D visualization, and VR spatial walkthroughs.

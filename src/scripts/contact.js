@@ -2,8 +2,7 @@
  * CREVINOX — Contact Form & Communication Channels Controller
  * 
  * Provides interactive pill selectors for project type and budget,
- * real-time validation, WhatsApp direct dispatch with prefilled message,
- * copy-email functionality, and transparent inquiry handling.
+ * real-time validation, copy-email functionality, and transparent inquiry handling.
  */
 
 import { trackEvent } from './analytics.js';
@@ -14,7 +13,6 @@ export function initContactForm() {
   const projectTypePills = document.querySelectorAll('.pill-project-type');
   const budgetPills = document.querySelectorAll('.pill-budget');
   const statusAlert = document.getElementById('form-status-alert');
-  const whatsappDirectBtn = document.getElementById('whatsapp-direct-btn');
   const copyEmailBtn = document.getElementById('copy-email-btn');
 
   let selectedProjectType = 'Website Design & Development';
@@ -38,31 +36,7 @@ export function initContactForm() {
     });
   });
 
-  const footerWhatsappBtn = document.getElementById('footer-whatsapp-btn');
-  const heroWhatsappBtn = document.getElementById('hero-whatsapp-btn');
-
-  // 3. WhatsApp Direct Button Handlers
-  const handleWhatsAppClick = (e) => {
-    e.preventDefault();
-    const targetUrl = BUSINESS_CONFIG.getWhatsAppUrl();
-    trackEvent('whatsapp_click', {
-      event_category: 'lead_engagement',
-      event_label: 'WhatsApp Consultation Initiated'
-    });
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
-  };
-
-  if (whatsappDirectBtn) {
-    whatsappDirectBtn.addEventListener('click', handleWhatsAppClick);
-  }
-  if (footerWhatsappBtn) {
-    footerWhatsappBtn.addEventListener('click', handleWhatsAppClick);
-  }
-  if (heroWhatsappBtn) {
-    heroWhatsappBtn.addEventListener('click', handleWhatsAppClick);
-  }
-
-  // 4. Copy Email Handlers
+  // 3. Copy Email Handlers
   const copyEmailBtns = document.querySelectorAll('.copy-email-btn');
   copyEmailBtns.forEach(btn => {
     btn.addEventListener('click', async (e) => {
@@ -88,7 +62,7 @@ export function initContactForm() {
     });
   });
 
-  // 5. Form Submit Handler with Anti-Spam Honeypot & Rate-Limiting Protection
+  // 4. Form Submit Handler with Anti-Spam Honeypot & Rate-Limiting Protection
   let lastSubmitTime = 0;
 
   if (form) {

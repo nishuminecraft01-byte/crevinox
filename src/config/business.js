@@ -31,26 +31,10 @@ export const BUSINESS_CONFIG = {
     emails: ['crewinox@gmail.com'],
     isEmailVerified: true,
 
-    // [CONFIGURABLE] Owner's verified business WhatsApp number
-    // Format: international phone without '+' or spaces, e.g., '919876543210'
-    whatsappNumber: '', // Owner can input their direct phone/WhatsApp number here
-    whatsappPrefilledMessage: "Hi CREVINOX! I'm interested in getting a website developed for my business.",
-
-    // [CONFIGURABLE] Official business telephone (if separate from WhatsApp)
+    // [CONFIGURABLE] Official business telephone
     telephone: '', // e.g. '+91-XXXXXXXXXX'
 
     // [CONFIGURABLE] Official studio location or operating jurisdictions
     location: 'Global Digital Studio'
-  },
-
-  // Helper method to construct the official WhatsApp dispatch URL
-  getWhatsAppUrl() {
-    const text = encodeURIComponent(this.contact.whatsappPrefilledMessage);
-    if (this.contact.whatsappNumber && this.contact.whatsappNumber.trim()) {
-      const cleanNum = this.contact.whatsappNumber.replace(/[^0-9]/g, '');
-      return `https://wa.me/${cleanNum}?text=${text}`;
-    }
-    // Fallback: Opens WhatsApp interface with pre-filled message ready to send
-    return `https://wa.me/?text=${text}`;
   }
 };

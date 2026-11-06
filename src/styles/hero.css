@@ -176,61 +176,6 @@
   margin-bottom: 3.25rem;
 }
 
-/* WhatsApp Quick Action Pill — High-Tech Kinetic */
-.hero-whatsapp-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.95rem 1.65rem;
-  border-radius: var(--radius-full);
-  background: var(--whatsapp-bg);
-  border: 1px solid var(--whatsapp-border);
-  color: var(--whatsapp-text);
-  font-size: 0.9rem;
-  font-weight: 600;
-  text-decoration: none;
-  backdrop-filter: blur(10px);
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-normal);
-}
-
-.hero-whatsapp-pill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  transform: skewX(-25deg);
-  pointer-events: none;
-  transition: left 0.65s cubic-bezier(0.19, 1, 0.22, 1);
-  z-index: 1;
-}
-
-.hero-whatsapp-pill:hover::before {
-  left: 140%;
-}
-
-.hero-whatsapp-pill:hover {
-  background: rgba(37, 211, 102, 0.18);
-  border-color: rgba(37, 211, 102, 0.6);
-  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.2);
-  transform: translateY(-2px) scale(1.015);
-  color: var(--whatsapp-text);
-}
-
-.hero-whatsapp-pill:active {
-  transform: translateY(0) scale(0.97);
-}
-
-.hero-whatsapp-pill svg {
-  color: #10B981;
-  width: 18px;
-  height: 18px;
-}
-
 /* Live Studio Metrics Dock */
 .hero-metrics-dock {
   display: grid;
@@ -387,8 +332,7 @@
     margin-bottom: 2.25rem;
   }
 
-  .hero-cta-group .btn,
-  .hero-cta-group .hero-whatsapp-pill {
+  .hero-cta-group .btn {
     width: 100%;
     justify-content: center;
   }

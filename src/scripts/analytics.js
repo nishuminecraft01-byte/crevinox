@@ -3,8 +3,8 @@ import { SEO_CONFIG } from '../config/seo.js';
 /**
  * CREVINOX — Conversion & Event Telemetry Module
  * 
- * Safely tracks business-critical conversion actions (WhatsApp chats,
- * form inquiries, portfolio views, CTA interactions) in Google Analytics 4.
+ * Safely tracks business-critical conversion actions (form inquiries,
+ * portfolio views, CTA interactions) in Google Analytics 4.
  */
 
 export function initAnalytics() {
@@ -63,20 +63,10 @@ export function trackEvent(eventName, eventParams = {}) {
 }
 
 /**
- * Attach telemetry hooks to interactive CTA links, WhatsApp, and email
+ * Attach telemetry hooks to interactive CTA links and email
  */
 function bindConversionEvents() {
-  // 1. WhatsApp Click Tracking
-  document.querySelectorAll('a[href*="wa.me"], button#whatsapp-direct-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      trackEvent('whatsapp_click', {
-        event_category: 'lead_engagement',
-        event_label: 'WhatsApp Consultation Initiated'
-      });
-    });
-  });
-
-  // 2. Email Direct Click Tracking
+  // 1. Email Direct Click Tracking
   document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
     link.addEventListener('click', () => {
       trackEvent('email_click', {

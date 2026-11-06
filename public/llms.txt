@@ -26,5 +26,4 @@ CREVINOX builds fast, responsive, and visually distinctive digital experiences f
 - [Official Website](https://crevinox.com/): Official home of CREVINOX Digital Studio
 - [Primary Contact Email](mailto:crewinox@gmail.com): Primary inquiry and client onboarding email
 - [Official Instagram](https://www.instagram.com/crevinox/): Instagram platform and visual portfolio
-- [WhatsApp Direct Consultation](https://api.whatsapp.com/send?phone=919321703273&text=Hi%20CREVINOX): Direct WhatsApp consultation channel
 - [Sitemap](https://crevinox.com/sitemap.xml): Machine-readable XML sitemap of all public pages

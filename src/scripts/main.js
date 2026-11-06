@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Initialize Selected Work & Case Study Modal
   initWorkPortfolio();
 
-  // 4. Initialize Contact Form & WhatsApp integration
+  // 4. Initialize Contact Form & Lead Pipeline
   initContactForm();
 
   // 5. Initialize Scroll Reveal Observers

@@ -40,7 +40,7 @@ export const OFFICIAL_PROJECTS = [
       'High-impact athletic design for Dahisar East premier strength facility',
       'Strength, powerlifting, bodybuilding, and fat-loss program architecture',
       'Intense, dark-luxury aesthetic with progressive overload mindset',
-      'Frictionless membership consultation and WhatsApp inquiry pathway'
+      'Frictionless membership consultation and direct online inquiry pathway'
     ],
     scope: 'Athletic Gym Identity, Program Showcases, High-Impact Web Design',
     status: 'Live Deployed Website'

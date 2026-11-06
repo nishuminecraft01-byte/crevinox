@@ -86,11 +86,6 @@
   --btn-sec-hover-bg: #FFFFFF;
   --btn-sec-hover-text: #0F172A;
 
-  /* WhatsApp Pill */
-  --whatsapp-bg: rgba(37, 211, 102, 0.08);
-  --whatsapp-border: rgba(37, 211, 102, 0.35);
-  --whatsapp-text: #FFFFFF;
-
   /* Browser Header */
   --browser-header-bg: rgba(3, 7, 18, 0.88);
   --browser-frame-bg: rgba(4, 8, 18, 0.82);
@@ -216,11 +211,6 @@
   --btn-sec-text: var(--text-primary);
   --btn-sec-hover-bg: #FFFFFF;
   --btn-sec-hover-text: var(--accent-blue);
-
-  /* WhatsApp Pill */
-  --whatsapp-bg: rgba(37, 211, 102, 0.1);
-  --whatsapp-border: rgba(37, 211, 102, 0.4);
-  --whatsapp-text: #065F46;
 
   /* Browser Header */
   --browser-header-bg: #F1F5F9;

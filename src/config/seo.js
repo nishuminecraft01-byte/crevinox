@@ -18,7 +18,6 @@ export const SEO_CONFIG = {
     legalName: 'CREVINOX Digital Studio',
     brandName: 'CREVINOX',
     email: 'crewinox@gmail.com',
-    whatsapp: 'https://wa.me/', // Client WhatsApp number link (e.g. https://wa.me/91XXXXXXXXXX)
     operatingModel: 'Independent Global Digital Studio & Web Development Agency',
     serviceAreas: ['Global', 'India', 'United States', 'United Kingdom', 'United Arab Emirates'],
     priceRange: '$$$',

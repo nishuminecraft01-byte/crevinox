@@ -1704,8 +1704,16 @@
 
         <!-- Right: Professional Project Inquiry Form -->
         <div class="contact-form-card reveal-on-scroll delay-200">
-          <h3 class="form-title">PROJECT INQUIRY</h3>
-          <p class="form-subtitle">Tell us about your brand and what you want to create.</p>
+          <div class="form-header-row">
+            <div>
+              <h3 class="form-title">PROJECT INQUIRY</h3>
+              <p class="form-subtitle">Tell us about your brand vision and what you want to engineer.</p>
+            </div>
+            <div class="form-header-badge" title="Direct inbox delivery">
+              <span class="badge-dot"></span>
+              <span>Direct to crewinox@gmail.com</span>
+            </div>
+          </div>
 
           <form id="project-inquiry-form" class="inquiry-form" novalidate>
             <div id="form-status-alert" class="form-status-alert" role="alert"></div>
@@ -1727,10 +1735,17 @@
               </div>
             </div>
 
-            <div class="form-group">
-              <label for="client-business" class="form-label">Business / Brand Name</label>
-              <input type="text" id="client-business" name="business" class="form-input"
-                placeholder="e.g. Apex Global" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-business" class="form-label">Business / Brand Name</label>
+                <input type="text" id="client-business" name="business" class="form-input"
+                  placeholder="e.g. Apex Global" />
+              </div>
+              <div class="form-group">
+                <label for="client-phone" class="form-label">Phone / WhatsApp (Optional)</label>
+                <input type="tel" id="client-phone" name="phone" class="form-input"
+                  placeholder="e.g. +91 98765 43210" />
+              </div>
             </div>
 
             <!-- Project Type Pills -->
@@ -1744,35 +1759,33 @@
                 <button type="button" class="pill-option pill-project-type" data-value="Brand & Digital Identity">Brand
                   & Digital Identity</button>
                 <button type="button" class="pill-option pill-project-type"
-                  data-value="Website Optimization & Support">Website Optimization</button>
+                  data-value="Website Redesign & Optimization">Website Redesign</button>
                 <button type="button" class="pill-option pill-project-type"
-                  data-value="Custom Digital Experience">Custom Experience</button>
-              </div>
-            </div>
-
-            <!-- Estimated Budget Pills -->
-            <div class="form-group">
-              <label class="form-label">Estimated Budget (Optional)</label>
-              <div class="pills-group" role="radiogroup" aria-label="Select Budget Range">
-                <button type="button" class="pill-option pill-budget" data-value="Under $3,000">Under $3,000</button>
-                <button type="button" class="pill-option pill-budget selected" data-value="$3,000 – $7,000">$3,000 –
-                  $7,000</button>
-                <button type="button" class="pill-option pill-budget" data-value="$7,000 – $15,000">$7,000 –
-                  $15,000</button>
-                <button type="button" class="pill-option pill-budget" data-value="$15,000+">$15,000+</button>
+                  data-value="Custom Web Application">Custom Web App</button>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="client-details" class="form-label">Project Details *</label>
+              <label for="client-details" class="form-label">Project Details & Objectives *</label>
               <textarea id="client-details" name="details" class="form-textarea"
-                placeholder="Describe your objectives, timeline, vision, or any reference websites you admire..."
+                placeholder="Tell us about your project goals, scope, timeline, reference websites, or any specific requirements..."
                 required></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary form-submit-btn">
-              LET'S BUILD SOMETHING <span class="btn-icon">↗</span>
+            <button type="submit" id="form-submit-btn" class="btn btn-primary form-submit-btn">
+              <span class="submit-spinner" aria-hidden="true"></span>
+              <span class="submit-btn-text">SEND PROJECT INQUIRY</span>
+              <span class="btn-icon">↗</span>
             </button>
+
+            <div class="form-direct-footer">
+              <span class="direct-footer-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                Delivers directly to <a href="mailto:crewinox@gmail.com" class="direct-email-link">crewinox@gmail.com</a>
+              </span>
+              <span class="direct-footer-sep" aria-hidden="true">•</span>
+              <span class="direct-footer-item">24h Guaranteed Response</span>
+            </div>
           </form>
         </div>
       </div>

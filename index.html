@@ -1666,7 +1666,7 @@
               </div>
               <div class="channel-content">
                 <span class="channel-label">Studio Availability</span>
-                <span class="channel-value" style="color: #9EE493;">Accepting Select New Projects</span>
+                <span class="channel-value channel-value--available">Accepting Select New Projects</span>
               </div>
             </div>
           </div>
@@ -1716,66 +1716,73 @@
           </div>
 
           <form id="project-inquiry-form" class="inquiry-form" novalidate>
-            <div id="form-status-alert" class="form-status-alert" role="alert"></div>
-            <!-- Security Honeypot Anti-Spam Field -->
-            <div style="display:none;" aria-hidden="true">
-              <input type="text" name="_studio_trap" tabindex="-1" autocomplete="off" />
+            <div id="form-status-alert" class="form-status-alert" role="alert" aria-live="polite"></div>
+            <!-- Anti-Spam Honeypot Field (FormSubmit _honey) -->
+            <div class="hp-trap" aria-hidden="true">
+              <label for="hp-website">Leave this field blank</label>
+              <input type="text" id="hp-website" name="_honey" tabindex="-1" autocomplete="off" />
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="client-name" class="form-label">Your Name *</label>
+                <label for="client-name" class="form-label">Full Name *</label>
                 <input type="text" id="client-name" name="name" class="form-input" placeholder="e.g. Marcus Vance"
-                  required />
+                  autocomplete="name" aria-describedby="error-name" required />
+                <span class="field-error-msg" id="error-name" aria-live="polite"></span>
               </div>
               <div class="form-group">
                 <label for="client-email" class="form-label">Email Address *</label>
                 <input type="email" id="client-email" name="email" class="form-input" placeholder="name@company.com"
-                  required />
+                  autocomplete="email" aria-describedby="error-email" required />
+                <span class="field-error-msg" id="error-email" aria-live="polite"></span>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="client-business" class="form-label">Business / Brand Name</label>
-                <input type="text" id="client-business" name="business" class="form-input"
-                  placeholder="e.g. Apex Global" />
+                <label for="client-phone" class="form-label">Phone Number (Optional)</label>
+                <input type="tel" id="client-phone" name="phone" class="form-input"
+                  placeholder="e.g. +91 98765 43210" autocomplete="tel" />
               </div>
               <div class="form-group">
-                <label for="client-phone" class="form-label">Phone / WhatsApp (Optional)</label>
-                <input type="tel" id="client-phone" name="phone" class="form-input"
-                  placeholder="e.g. +91 98765 43210" />
+                <label for="client-business" class="form-label">Business Name (Optional)</label>
+                <input type="text" id="client-business" name="business" class="form-input"
+                  placeholder="e.g. Apex Global" autocomplete="organization" />
               </div>
             </div>
 
-            <!-- Project Type Pills -->
+            <!-- Service Required Selector -->
             <div class="form-group">
-              <label class="form-label">Type of Project</label>
-              <div class="pills-group" role="radiogroup" aria-label="Select Project Type">
-                <button type="button" class="pill-option pill-project-type selected"
-                  data-value="Website Design & Development">Website Design & Development</button>
-                <button type="button" class="pill-option pill-project-type"
-                  data-value="E-Commerce Experience">E-Commerce Experience</button>
-                <button type="button" class="pill-option pill-project-type" data-value="Brand & Digital Identity">Brand
-                  & Digital Identity</button>
-                <button type="button" class="pill-option pill-project-type"
-                  data-value="Website Redesign & Optimization">Website Redesign</button>
-                <button type="button" class="pill-option pill-project-type"
-                  data-value="Custom Web Application">Custom Web App</button>
-              </div>
+              <label for="client-service" class="form-label">Service Required *</label>
+              <select id="client-service" name="service" class="form-select" aria-describedby="error-service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="Website Design">Website Design</option>
+                <option value="Web Development">Web Development</option>
+                <option value="E-commerce Solutions">E-commerce Solutions</option>
+                <option value="Digital Experiences">Digital Experiences</option>
+                <option value="Website Management">Website Management</option>
+              </select>
+              <span class="field-error-msg" id="error-service" aria-live="polite"></span>
             </div>
 
             <div class="form-group">
-              <label for="client-details" class="form-label">Project Details & Objectives *</label>
-              <textarea id="client-details" name="details" class="form-textarea"
+              <label for="client-budget" class="form-label">Project Budget (Optional)</label>
+              <input type="text" id="client-budget" name="budget" class="form-input"
+                placeholder="e.g. Flexible / Custom Quote (Optional)" />
+            </div>
+
+            <div class="form-group">
+              <label for="client-details" class="form-label">Project Details / Message *</label>
+              <textarea id="client-details" name="message" class="form-textarea"
                 placeholder="Tell us about your project goals, scope, timeline, reference websites, or any specific requirements..."
-                required></textarea>
+                aria-describedby="error-details" required></textarea>
+              <span class="field-error-msg" id="error-details" aria-live="polite"></span>
             </div>
 
             <button type="submit" id="form-submit-btn" class="btn btn-primary form-submit-btn">
               <span class="submit-spinner" aria-hidden="true"></span>
-              <span class="submit-btn-text">SEND PROJECT INQUIRY</span>
-              <span class="btn-icon">↗</span>
+              <span class="submit-btn-text">TRANSMIT PROJECT INQUIRY</span>
+              <span class="btn-icon" aria-hidden="true">→</span>
             </button>
 
             <div class="form-direct-footer">
